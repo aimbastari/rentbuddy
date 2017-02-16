@@ -1,3 +1,5 @@
+import './semantic-ui/semantic.min.css';
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
@@ -9,6 +11,7 @@ import createLogger from 'redux-logger';
 import App from './App';
 import './index.css';
 import reducer from './reducer';
+
 
 const logger = createLogger();
 const store = createStore(reducer, applyMiddleware(thunk, promise, logger));
