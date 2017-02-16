@@ -1,3 +1,15 @@
+
+import { combineReducers } from 'redux';
+import { reducer as formReducer } from 'redux-form';
+
+const reducers = {
+  //..other reducers
+  form: formReducer // Mount redux-from reducer as form
+}
+
+const reducer = combineReducers(reducers);
+
+/*
 function reducer(state, action) {
   if (action.type === 'ADD_MESSAGE') {
     return {
@@ -16,5 +28,6 @@ function reducer(state, action) {
     return state;
   }
 }
+*/
 
 export default reducer;

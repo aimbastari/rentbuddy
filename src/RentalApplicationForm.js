@@ -2,10 +2,17 @@ import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 
 class RentalApplicationForm extends Component {
+
+  handleSubmit(e, values){
+    e.preventDefault();
+
+    //dispatch an action creator to save data
+
+  }
+
   render() {
-    const { handleSubmit } = this.props;
     return (
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={this.handleSubmit}>
         <div>
           <label htmlFor="firstName">First Name</label>
           <Field name="firstName" component="input" type="text"/>
