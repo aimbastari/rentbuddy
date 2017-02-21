@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 
+
+
 class RentalApplicationForm extends Component {
 
   handleSubmit(e, values){
@@ -21,6 +23,15 @@ class RentalApplicationForm extends Component {
           <label htmlFor="lastName">Last Name</label>
           <Field name="lastName" component="input" type="text"/>
         </div>
+        <div>
+          <label htmlFor="middleName">Middle Name</label>
+          <Field name="middleName" component="input" type="text"/>
+        </div>
+        <div>
+          <label htmlFor="socialSecurity">Social Security</label>
+          <Field name="socialSecurity" component="input" type="text"/>
+        </div>
+
         <div>
           <label htmlFor="email">Email</label>
           <Field name="email" component="input" type="email"/>

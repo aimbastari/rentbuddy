@@ -11,6 +11,7 @@ import App from './App';
 import './index.css';
 import reducer from './reducer';
 
+import 'semantic-ui-css/semantic.min.css';
 
 const logger = createLogger();
 const store = createStore(reducer, applyMiddleware(thunk, promise, logger));
