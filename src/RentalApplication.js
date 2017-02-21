@@ -5,6 +5,7 @@ import { Accordion, Icon, Segment } from 'semantic-ui-react';
 
 import PersonalInfo from './PersonalInfo';
 import AddressInfo from './AddressInfo';
+import OccupantsInfo from './OccupantsInfo';
 
 
 class RentalApplication extends Component{
@@ -46,7 +47,17 @@ class RentalApplication extends Component{
             Proposed Occupants
           </Accordion.Title>
           <Accordion.Content>
-            List proposed occupants in addition to yourself.
+            <Segment>
+              <OccupantsInfo />
+            </Segment>
+          </Accordion.Content>
+
+          <Accordion.Title>
+            <Icon name='dropdown' />
+            Pets Information
+          </Accordion.Title>
+          <Accordion.Content>
+            List pets.
           </Accordion.Content>
 
         </Accordion>
