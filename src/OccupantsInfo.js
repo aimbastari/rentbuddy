@@ -3,21 +3,16 @@ import { Field, reduxForm } from 'redux-form';
 import { Segment, Button } from 'semantic-ui-react';
 
 /*
-Personal information form
+Occupants information form
 */
 
 class OccupantsInfo extends Component {
-
-  handleSubmit(e, values){
-    e.preventDefault();
-
-    //dispatch an action creator to save data
-    this.props.submit(values);
-  }
-
   render() {
+
+    const { handleSubmit } = this.props;
+
     return (
-      <form onSubmit={this.handleSubmit} className="ui form">
+      <form onSubmit={handleSubmit} className="ui form">
         <div className="fields">
           <div className="seven wide field">
             <label htmlFor="firstName">First Name</label>
@@ -36,7 +31,14 @@ class OccupantsInfo extends Component {
         <div className="fields">
           <div className="ten wide field">
             <label htmlFor="relationship">Relationship</label>
-            <Field name="relationship" component="input" type="text"/>
+            <Field name="relationship" component="select">
+              <option>friend</option>
+              <option>child</option>
+              <option>mother</option>
+              <option>father</option>
+              <option>husband</option>
+              <option>wife</option>
+            </Field>
           </div>
           <div className="six wide field">
             <label htmlFor="howLong">How Long</label>

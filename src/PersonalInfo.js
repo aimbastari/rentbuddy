@@ -7,17 +7,11 @@ Personal information form
 */
 
 class PersonalInfo extends Component {
-
-  handleSubmit(e, values){
-    e.preventDefault();
-
-    //dispatch an action creator to save data
-    this.props.submit(values);
-  }
-
   render() {
+    const { handleSubmit } = this.props;
+
     return (
-      <form onSubmit={this.handleSubmit} className="ui form">
+      <form onSubmit={handleSubmit} className="ui form">
         <div className="fields">
           <div className="seven wide field">
             <label htmlFor="firstName">First Name</label>

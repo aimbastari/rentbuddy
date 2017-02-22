@@ -10,10 +10,9 @@ import OccupantsInfo from './OccupantsInfo';
 
 class RentalApplication extends Component{
 
-  submitFormData(values){
+  handleSubmit = (values) => {
     console.log("Form values:");
-    console.log(values);
-
+    console.log (values);
   }
 
 
@@ -28,7 +27,7 @@ class RentalApplication extends Component{
           </Accordion.Title>
           <Accordion.Content>
             <Segment>
-              <PersonalInfo submit={this.submitFormData()}/>
+              <PersonalInfo onSubmit={this.handleSubmit}/>
             </Segment>
           </Accordion.Content>
 
@@ -48,7 +47,7 @@ class RentalApplication extends Component{
           </Accordion.Title>
           <Accordion.Content>
             <Segment>
-              <OccupantsInfo />
+              <OccupantsInfo onSubmit={this.handleSubmit}/>
             </Segment>
           </Accordion.Content>
 
