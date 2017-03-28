@@ -1,17 +1,28 @@
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { Segment, Button } from 'semantic-ui-react';
+import {connect} from 'react-redux';
+
+import { load as loadUser } from './reducer/UserReducer';
 
 /*
 Personal information form
 */
-
 class PersonalInfo extends Component {
   render() {
-    const { handleSubmit } = this.props;
+    const { handleSubmit, load, pristine, reset, submitting } = this.props;
 
+    const data = {
+      firstName : 'lia',
+      lastName : 'imbastari',
+      middleName: 'susana',
+      socialSecurity: 552556850
+    }
     return (
       <form onSubmit={handleSubmit} className="ui form">
+          <div>
+           <button type="button" onClick={() => load(data)}>Load Account</button>
+         </div>
         <div className="fields">
           <div className="seven wide field">
             <label htmlFor="firstName">First Name</label>
@@ -58,5 +69,13 @@ class PersonalInfo extends Component {
 PersonalInfo = reduxForm({
   form: 'personalInfo' // a unique name for this form
 })(PersonalInfo);
+
+
+PersonalInfo = connect(
+  state => ({
+      initialValues: state.user.data
+  }),
+  {load: loadUser}
+)(PersonalInfo)
 
 export default PersonalInfo;

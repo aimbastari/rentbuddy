@@ -47,4 +47,14 @@ RentalApplicationForm = reduxForm({
   form: 'rentalApplication' // a unique name for this form
 })(RentalApplicationForm);
 
+
+RentalApplicationForm = connect(
+  state => ({
+      initialValues: state.user.data
+  }),
+  {load : loadUser}
+)(RentalApplicationForm)
+
+
+
 export default RentalApplicationForm;

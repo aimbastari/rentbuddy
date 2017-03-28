@@ -2,7 +2,10 @@
 import { combineReducers } from 'redux';
 import { reducer as formReducer } from 'redux-form';
 
+import user from './UserReducer.js'
+
 const reducers = {
+  user,
   //..other reducers
   form: formReducer // Mount redux-from reducer as form
 }
