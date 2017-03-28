@@ -7,6 +7,7 @@ import PersonalInfo from './PersonalInfo';
 import AddressInfo from './AddressInfo';
 import OccupantsInfo from './OccupantsInfo';
 import PetsInfo from './PetsInfo';
+import EmploymentHistory from './EmploymentHistory';
 
 
 class RentalApplication extends Component{
@@ -61,6 +62,17 @@ class RentalApplication extends Component{
               <PetsInfo onSubmit={this.handleSubmit}/>
             </Segment>
           </Accordion.Content>
+
+          <Accordion.Title>
+            <Icon name='dropdown' />
+            Employment History
+          </Accordion.Title>
+          <Accordion.Content>
+            <Segment>
+              <EmploymentHistory onSubmit={this.handleSubmit}/>
+            </Segment>
+          </Accordion.Content>
+
 
         </Accordion>
 
