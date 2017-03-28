@@ -8,16 +8,12 @@ Address information form
 
 class AddressInfo extends Component {
 
-  handleSubmit(e, values){
-    e.preventDefault();
-
-    //dispatch an action creator to save data
-
-  }
-
   render() {
+    const { handleSubmit, load, pristine, reset, submitting } = this.props;
+
+
     return (
-      <form onSubmit={this.handleSubmit} className="ui form">
+      <form onSubmit={handleSubmit} className="ui form">
         <div className="fields">
           <div className="seven wide field">
             <label htmlFor="presentAddress">Present Address</label>
@@ -37,10 +33,26 @@ class AddressInfo extends Component {
           </div>
         </div>
 
+        <div className="fields">
+          <div className="eight wide field">
+            <label htmlFor="landlord">landlord</label>
+            <Field name="landlord" placeholder="landlord" component="input" type="text"/>
+          </div>
+          <div className="five wide field">
+            <label htmlFor="phone">phone</label>
+            <Field name="phone" placeholder="phone" component="input" type="text"/>
+          </div>
+          <div className="three wide field">
+            <label htmlFor="years">years</label>
+            <Field name="years" placeholder="years" component="input" type="text"/>
+          </div>
+        </div>
+
+
         <Segment basic textAlign="right">
           <Button type="submit">Submit</Button>
         </Segment>
-        
+
       </form>
     );
   }

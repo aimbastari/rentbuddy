@@ -39,7 +39,7 @@ class RentalApplication extends Component{
           </Accordion.Title>
           <Accordion.Content>
             <Segment>
-              <AddressInfo />
+              <AddressInfo onSubmit={this.handleSubmit} />
             </Segment>
           </Accordion.Content>
 

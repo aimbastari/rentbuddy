@@ -9,6 +9,13 @@ import { load as loadUser } from './reducer/UserReducer';
 Personal information form
 */
 class PersonalInfo extends Component {
+
+  componentWillMount(){
+
+
+  }
+
+
   render() {
     const { handleSubmit, load, pristine, reset, submitting } = this.props;
 
