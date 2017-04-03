@@ -5,6 +5,8 @@ import {connect} from 'react-redux';
 
 import { load as loadUser } from './reducer/UserReducer';
 
+import {renderDatePicker} from './components/RenderDatePicker';
+
 /*
 Personal information form
 */
@@ -53,7 +55,7 @@ class PersonalInfo extends Component {
           </div>
           <div className="six wide field">
             <label htmlFor="dateofBirth">Date of Birth</label>
-            <Field name="dateOfBirth" component="input" type="text"/>
+            <Field name="dateOfBirth" placeholder="date of birth" component="input" type="text" />
           </div>
 
         </div>
