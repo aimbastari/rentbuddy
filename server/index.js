@@ -10,7 +10,7 @@ const http = require('http');
 const bodyparser = require('body-parser');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
-const router = require('./router');
+const router = require('./Router');
 const cors = require('cors');
 
 const app = express();

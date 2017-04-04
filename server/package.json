@@ -7,8 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon index.js",
     "debug": "nodemon --debug=5858 index.js",
-    "seed": "nodemon ./seed/seed.js",
-    "seed-debug": "nodemon --debug=5858 ./seed/seed.js"
+    "seed": "nodemon ./seed/Seed.js",
+    "seed-debug": "nodemon --debug=5858 ./seed/Seed.js"
   },
   "keywords": [
     "rentbuddy",
@@ -17,12 +17,16 @@
   "author": "javier alejandro imbastari",
   "license": "ISC",
   "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.17.1",
     "cors": "^2.8.3",
     "express": "^4.15.2",
+    "jwt-simple": "^0.5.1",
     "mongoose": "^4.9.3",
     "morgan": "^1.8.1",
-    "router": "^1.3.0"
+    "passport": "^0.3.2",
+    "passport-jwt": "^2.2.1",
+    "passport-local": "^1.0.0"
   },
   "devDependencies": {
     "nodemon": "^1.11.0"
