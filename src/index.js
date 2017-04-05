@@ -7,18 +7,22 @@ import thunk from 'redux-thunk';
 import promise from 'redux-promise';
 import createLogger from 'redux-logger';
 
-import { Router, Route} from 'react-router-dom';
+import { Router, Route, Switch} from 'react-router-dom';
 import createBrowserHistory from 'history/createBrowserHistory';
 
 
 import Header from './Header'
 import Home from './Home';
 import About from './About';
+import NoMatch from './NoMatch';
+
 import SignIn from './components/auth/SignIn';
 import RentalApplication from './RentalApplication';
 
 import './index.css';
 import reducer from './reducer';
+
+import {AUTH_USER} from './actions/Types';
 
 import 'semantic-ui-css/semantic.min.css';
 
@@ -26,17 +30,25 @@ const logger = createLogger();
 const store = createStore(reducer, applyMiddleware(thunk, promise, logger));
 
 
+//If we have a token consider the user logged in
+const token = localStorage.getItem('token');
+if(token){
+  store.dispatch({type: AUTH_USER});
+}
+
 ReactDOM.render(
   <Provider store={store}>
     <Router history={createBrowserHistory()}>
       <div>
         <Header />
-        <Route exact path='/' component={Home} />
-        <Route path='/about' component={About} />
-        <Route path='/signin' component={SignIn} />
+        <Switch>
+          <Route exact path='/' component={Home} />
+          <Route path='/about' component={About} />
+          <Route path='/signin' component={SignIn} />
           <Route path='/application' component={RentalApplication} />
-
-
+  
+          <Route component={NoMatch}/>
+        </Switch>
       </div>
     </Router>
   </Provider>,

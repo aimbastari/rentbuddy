@@ -1,11 +1,10 @@
 import axios from 'axios';
 import {AUTH_USER, UNAUTH_USER, AUTH_ERROR} from './Types'
 
-
 const API_URL = 'http://localhost:3090';
 
-
 export function signinUser({email, password}){
+
     return function(dispatch){
         //Submit email/password to the server
         axios.post(`${API_URL}/signin`, {email, password})
@@ -42,6 +41,7 @@ export function signinUser({email, password}){
 }
 
 export function signupUser({email, password}){
+
     return function(dispatch){
         //Submit email/password to the server
         axios.post(`${API_URL}/signup`, {email, password})
