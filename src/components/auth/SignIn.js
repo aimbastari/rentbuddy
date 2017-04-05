@@ -1,16 +1,11 @@
 import React, { Component } from 'react';
-import {reduxForm} from 'redux-form';
-import * as actions from '../../actions';
-import SignInForm from '.SignInForm';
+import SignInForm from './SignInForm';
 
-class Signin extends Component{
+class SignIn extends Component{
 
-    handleFormSubmit({email, password}){
-        //contact the backend auth server.
-       this.props.signinUser({email, password});
-
+    handleFormSubmit = (values) => {
+      console.log(values);
     }
-
 
     render(){
 
@@ -21,9 +16,11 @@ class Signin extends Component{
                 Sign-in to your account
               </h4>
 
-              <SignInForm onSubmit={handleFormSubmit()}/>
+              <SignInForm onSubmit={this.handleFormSubmit}/>
             </div>
           </div>
         );
     }
 }
+
+export default SignIn;

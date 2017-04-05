@@ -7,30 +7,37 @@ import thunk from 'redux-thunk';
 import promise from 'redux-promise';
 import createLogger from 'redux-logger';
 
+import { Router, Route} from 'react-router-dom';
+import createBrowserHistory from 'history/createBrowserHistory';
 
-import { Router, Route, IndexRoute, browserHistory} from 'react-router';
 
-import App from './App';
-import Welcome from './Welcome';
+import Header from './Header'
+import Home from './Home';
+import About from './About';
+import SignIn from './components/auth/SignIn';
+import RentalApplication from './RentalApplication';
 
 import './index.css';
 import reducer from './reducer';
 
 import 'semantic-ui-css/semantic.min.css';
 
-
-
-
 const logger = createLogger();
 const store = createStore(reducer, applyMiddleware(thunk, promise, logger));
 
+
 ReactDOM.render(
   <Provider store={store}>
-    <Router history={browserHistory}>
-      <Route path="/" component={App}>
-        <IndexRoute component={Welcome}/>
+    <Router history={createBrowserHistory()}>
+      <div>
+        <Header />
+        <Route exact path='/' component={Home} />
+        <Route path='/about' component={About} />
+        <Route path='/signin' component={SignIn} />
+          <Route path='/application' component={RentalApplication} />
 
-      </Route>
+
+      </div>
     </Router>
   </Provider>,
   document.getElementById('root')

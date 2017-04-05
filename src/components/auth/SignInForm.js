@@ -1,5 +1,5 @@
 import React from 'react'
-import {Field, redux-form} from 'redux-form';
+import {Field, reduxForm} from 'redux-form';
 
 const SignInForm = (props) => {
   const { handleSubmit, pristine, reset, submitting} = props
@@ -9,14 +9,14 @@ const SignInForm = (props) => {
       <div>
         <label>email</label>
         <div>
-          <Field name="email" component="input" type="email" placeholder="Email" />
+          <Field name="email" component="input" type="email" placeholder="email" />
         </div>
       </div>
 
       <div>
         <label>password</label>
         <div>
-          <Field name="password" component="input" type="email" placeholder="Email" />
+          <Field name="password" component="input" type="password" placeholder="password" />
         </div>
       </div>
 
@@ -32,7 +32,7 @@ const SignInForm = (props) => {
 
 }
 
-export default reduxform({
+export default reduxForm({
   form: 'signIn' //a unique identifier
 
 })(SignInForm)
