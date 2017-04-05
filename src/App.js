@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import { Container } from 'semantic-ui-react';
 
-import RentalApplication from './RentalApplication';
+
 
 class App extends Component {
   render() {
@@ -13,7 +13,7 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
         </div>
 
-        <RentalApplication />
+        {this.props.children}
 
       </Container>
     );
