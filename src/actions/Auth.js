@@ -1,4 +1,7 @@
+import React from 'react';
 import axios from 'axios';
+import { Redirect } from 'react-router-dom';
+
 import {AUTH_USER, UNAUTH_USER, AUTH_ERROR} from './Types'
 
 const API_URL = 'http://localhost:3090';
@@ -20,7 +23,8 @@ export function signinUser({email, password}){
                 dispatch({type: AUTH_USER});
 
                 //redirect to the route '/dashboard'
-                browserHistory.push("/dashboard");
+
+                <Redirect to='/dashboard'/>
 
             })
             .catch((err) => {
@@ -33,7 +37,7 @@ export function signinUser({email, password}){
                 dispatch(authError('email / password do not match'));
 
 
-                browserHistory.push("/signin");
+                <Redirect to='/signin'/>
 
             });
 
@@ -56,15 +60,15 @@ export function signupUser({email, password}){
 
 
                 //redirect to the route '/dashboard'
-                browserHistory.push("/dashboard");
+                <Redirect to='/dashboard'/>
 
             })
             .catch((response) => {
                 //If request is bad...
                 //Show error to the user
-                dispatch(authError(response.data.error));
+  //              dispatch(authError(response.data.error));
 
-                browserHistory.push("/signup");
+                <Redirect to='/signup'/>
 
             });
 

@@ -7,9 +7,10 @@ const Header = () => {
       <li><Link to="/">Home</Link></li>
       <li><Link to="/about">About</Link></li>
       <li><Link to="/signin">Sign In</Link></li>
+      <li><Link to="/signup">Sign Up</Link></li>
       <hr/>
+      <li><Link to="/dashboard">Dashboard</Link></li>
       <li><Link to="/application">Application</Link></li>
-
     </ul>
   );
 }
