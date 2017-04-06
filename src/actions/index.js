@@ -1,6 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 import { Redirect } from 'react-router-dom';
+import createBrowserHistory from 'history/createBrowserHistory';
+
 import {AUTH_USER, UNAUTH_USER, AUTH_ERROR} from './Types'
 
 
@@ -23,7 +25,13 @@ export function signinUser({email, password}){
                 dispatch({type: AUTH_USER});
 
                 //redirect to the route '/dashboard'
-                <Redirect to='/dashboard'/>
+                <Redirect push to='/dashboard'/>
+                // but you can use a location instead
+                const location = {
+                  pathname: '/dashboard',
+                  state: { fromDashboard: true }
+                }
+                //createBrowserHistory.push(location);
 
             })
             .catch((err) => {
@@ -35,7 +43,7 @@ export function signinUser({email, password}){
                 console.log("email / password do not match");
                 dispatch(authError('email / password do not match'));
 
-                <Redirect to='/signin'/>
+                <Redirect push to='/signin'/>
 
             });
 

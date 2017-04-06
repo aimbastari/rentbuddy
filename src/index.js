@@ -17,6 +17,7 @@ import About from './About';
 import NoMatch from './NoMatch';
 
 import SignIn from './components/auth/SignIn';
+import SignOut from './components/auth/SignOut';
 import SignUp from './components/auth/SignUp';
 
 import Dashboard from './Dashboard';
@@ -48,6 +49,7 @@ ReactDOM.render(
           <Route exact path='/' component={Home} />
           <Route path='/about' component={About} />
           <Route path='/signin' component={SignIn} />
+          <Route path='/signout' component={SignOut} />
           <Route path='/signup' component={SignUp} />
 
           <Route path='/dashboard' component={Dashboard} />

@@ -1,10 +1,18 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import * as actions from './../../actions';
+
 import SignInForm from './SignInForm';
 
 class SignIn extends Component{
 
     handleFormSubmit = (values) => {
       console.log(values);
+
+      console.log(values);
+
+      //dispatch call to action
+      this.props.signinUser(values);
     }
 
     render(){
@@ -23,4 +31,4 @@ class SignIn extends Component{
     }
 }
 
-export default SignIn;
+export default connect(null, actions)(SignIn);
