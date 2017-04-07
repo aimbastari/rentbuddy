@@ -15,7 +15,7 @@ const userData = require('./UserData.js').data;
 const applicationData = require('./ApplicationData.js').data;
 
 //DB setup
-const DB_URL=`mongodb://${DB_SERVER}:${DB_PORT}/auth`;
+const DB_URL=`mongodb://${DB_SERVER}:${DB_PORT}/rentbuddy`;
 mongoose.connect(DB_URL);
 
 //Seed data: first remove exisiting users, then create users
@@ -25,9 +25,7 @@ User.remove({}, function(err){
 
   User.create(userData, function (err, users){
     if(err) return console.error(err);
-
     console.log("Inserted Users");
-    console.log(users);
 
   });
 
@@ -41,10 +39,9 @@ Application.remove({}, function(err){
 
   Application.create(applicationData, function (err, doc){
     if(err) return console.error(err);
-
     console.log("Inserted Applications");
-    console.log(doc);
 
+    //join user with application
     //Populate UerId - ObjectId
     User.findOne({email : "tenant@gmail.com"}, function(err, doc){
       if(err) return console.error(err);
@@ -52,19 +49,39 @@ Application.remove({}, function(err){
       if(doc){
         console.log("Found one user");
 
-        Application.findOneAndUpdate({},
+        Application.findOneAndUpdate({email : "tenant@gmail.com"},
           { $set: {userId: doc._id}},{new : true}, function(err, doc){
             if (err) {return next(err);}
 
             if(!doc){
               console.log("Cannot update application");
+            }else{
+              console.log("Updated application with user");
             }
-
         });
-
       }
     });
 
-  });
+    User.findOne({email : "aimbastari@gmail.com"}, function(err, doc){
+      if(err) return console.error(err);
 
+      if(doc){
+        console.log("Found one user");
+
+        Application.findOneAndUpdate({email : "aimbastari@gmail.com"},
+          { $set: {userId: doc._id}},{new : true}, function(err, doc){
+            if (err) {return next(err);}
+
+            if(!doc){
+              console.log("Cannot update application");
+            }else{
+              console.log("Updated application with user");
+            }
+        });
+      }
+    });
+
+
+
+  });
 });

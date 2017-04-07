@@ -77,7 +77,7 @@ exports.data = [
     "ssn" : "553-55-71111",
     "otherId" : "",
     "dateOfBirth" : "2012-04-23",
-    "email" : "austinimbastari@gmail.com",
+    "email" : "tenant@gmail.com",
     "aliases": [
       "conhead", "moglee"
     ],

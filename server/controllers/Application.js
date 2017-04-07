@@ -53,10 +53,14 @@ exports.getApplicationByUserId = function(req, res){
 
 
 exports.saveApplication = function(req, res){
-  const _id = req.params.applicationId;
+  const userId = req.user._id;
+
+  console.log(req.body);
+
+//  const _id = req.params.applicationId;
 
   Application.findOneAndUpdate(
-    {_id},
+    {userId},
     req.body,
     {new : true},
     function(err, doc){

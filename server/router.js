@@ -47,6 +47,8 @@ module.exports = function(app){
 
 
   //Save single application
+  app.post('/application', requireAuth, Application.saveApplication);
+
   app.post('/applications/:applicationId', requireAuth, Application.saveApplication);
 
   app.post('/applications', requireAuth, Application.createApplication);
