@@ -9,14 +9,27 @@ import OccupantsInfo from './OccupantsInfo';
 import PetsInfo from './PetsInfo';
 import EmploymentHistory from './EmploymentHistory';
 
+import { connect } from 'react-redux';
+
+import * as actions from './actions/RentalApplicationActions';
 
 class RentalApplication extends Component{
 
   handleSubmit = (values) => {
-    console.log("Form values:");
-    console.log (values);
+
+
   }
 
+  handleSubmitPersonal = (values) => {
+    debugger;
+    this.props.saveApplication(values)
+
+  }
+
+  handleSubmitAddress = (values) => {
+    this.props.saveApplication({addresses : values})
+
+  }
 
   render(){
     return (
@@ -29,7 +42,7 @@ class RentalApplication extends Component{
           </Accordion.Title>
           <Accordion.Content>
             <Segment>
-              <PersonalInfo onSubmit={this.handleSubmit}/>
+              <PersonalInfo onSubmit={this.handleSubmitPersonal}/>
             </Segment>
           </Accordion.Content>
 
@@ -39,7 +52,7 @@ class RentalApplication extends Component{
           </Accordion.Title>
           <Accordion.Content>
             <Segment>
-              <AddressInfo onSubmit={this.handleSubmit} />
+              <AddressInfo onSubmit={this.handleSubmitAddress} />
             </Segment>
           </Accordion.Content>
 
@@ -84,5 +97,4 @@ class RentalApplication extends Component{
 }
 
 
-
-export default RentalApplication;
+export default connect(null, actions)(RentalApplication);

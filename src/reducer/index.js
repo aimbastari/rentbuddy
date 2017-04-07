@@ -4,6 +4,8 @@ import { reducer as formReducer } from 'redux-form';
 
 import user from './UserReducer.js'
 import auth from './AuthReducer.js'
+import application from './ApplicationReducer.js'
+
 
 const reducers = {
   user,
