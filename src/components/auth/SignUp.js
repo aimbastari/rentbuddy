@@ -1,21 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import * as actions from '../../actions';
-
+import * as actions from '../../actions/Auth';
 import SignUpForm from './SignUpForm';
 
 class SignUp extends Component{
 
     handleFormSubmit = (values) => {
-      console.log(values);
-
       //dispatch call to action
       this.props.signupUser(values);
 
     }
 
     render(){
-
         return (
           <div id="signIn" className="ui center aligned grid">
             <div className="column">
@@ -27,6 +23,7 @@ class SignUp extends Component{
             </div>
           </div>
         );
+
     }
 }
 
