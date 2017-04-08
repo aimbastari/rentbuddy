@@ -53,7 +53,7 @@ class PetsInfo extends Component {
 
 
     return (
-      <form onSubmit={handleSubmit} className="ui form">
+      <div>
         <div className="fields">
           <div className="sixteen wide field">
             <label htmlFor="pets">pets</label>
@@ -65,23 +65,10 @@ class PetsInfo extends Component {
           <Button type="button" onClick={reset} disabled={pristine || submitting}>Reset</Button>
           <Button type="submit" disabled={pristine || submitting}>Submit</Button>
         </Segment>
-      </form>
+     </div>
     );
   }
 }
-
-// Decorate the form component
-PetsInfo = reduxForm({
-  form: 'petsInfo' // a unique name for this form
-})(PetsInfo);
-
-PetsInfo = connect(
-  state => ({
-      initialValues: state.application.data
-  }),
-  actions
-)(PetsInfo)
-
 
 
 export default PetsInfo;

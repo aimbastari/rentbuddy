@@ -10,18 +10,11 @@ import * as actions from './actions/RentalApplicationActions';
 Personal information form
 */
 class PersonalInfo extends Component {
-
-  componentWillMount(){
-    this.props.getApplication();
-
-  }
-
-
   render() {
-    const { handleSubmit, pristine, reset, submitting } = this.props;
 
+        const { handleSubmit, pristine, reset, submitting } = this.props;
     return (
-      <form onSubmit={handleSubmit} className="ui form">
+      <div>
         <div className="fields">
           <div className="seven wide field">
             <label htmlFor="firstName">First Name</label>
@@ -60,22 +53,11 @@ class PersonalInfo extends Component {
           <Button type="button" onClick={reset} disabled={pristine || submitting}>Reset</Button>
           <Button type="submit" disabled={pristine || submitting}>Submit</Button>
         </Segment>
-      </form>
+
+      </div>
     );
   }
 }
 
-// Decorate the form component
-PersonalInfo = reduxForm({
-  form: 'personalInfo' // a unique name for this form
-})(PersonalInfo);
-
-
-PersonalInfo = connect(
-  state => ({
-      initialValues: state.application.data
-  }),
-  actions
-)(PersonalInfo)
 
 export default PersonalInfo;

@@ -1,60 +1,73 @@
 import React, { Component } from 'react';
+import './RentalApplication.css';
+
+import { Accordion, Icon, Segment, Button } from 'semantic-ui-react';
+
+import PersonalInfo from './PersonalInfo';
+import AddressInfo from './AddressInfo';
+import OccupantsInfo from './OccupantsInfo';
+import PetsInfo from './PetsInfo';
+import EmploymentHistory from './EmploymentHistory';
+
+import * as actions from './actions/RentalApplicationActions';
+
+import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 
 
+class RentalApplicationForm extends Component{
 
-class RentalApplicationForm extends Component {
 
-  handleSubmit(e, values){
-    e.preventDefault();
-
-    //dispatch an action creator to save data
-
-  }
-
-  render() {
+  render(){
+        const { handleSubmit, pristine, reset, submitting } = this.props;
     return (
-      <form onSubmit={this.handleSubmit}>
-        <div>
-          <label htmlFor="firstName">First Name</label>
-          <Field name="firstName" component="input" type="text"/>
-        </div>
-        <div>
-          <label htmlFor="lastName">Last Name</label>
-          <Field name="lastName" component="input" type="text"/>
-        </div>
-        <div>
-          <label htmlFor="middleName">Middle Name</label>
-          <Field name="middleName" component="input" type="text"/>
-        </div>
-        <div>
-          <label htmlFor="socialSecurity">Social Security</label>
-          <Field name="socialSecurity" component="input" type="text"/>
-        </div>
+      <form onSubmit={handleSubmit} className="ui form">
+        <Accordion>
+          <Accordion.Title>
+            <Icon name='dropdown' />
+            Personal Info
+          </Accordion.Title>
+          <Accordion.Content>
+            <Segment>
+              <PersonalInfo onSubmit={this.handleSubmit}  {...this.props}/>
+            </Segment>
+          </Accordion.Content>
 
-        <div>
-          <label htmlFor="email">Email</label>
-          <Field name="email" component="input" type="email"/>
-        </div>
-        <button type="submit">Submit</button>
+
+          <Accordion.Title>
+            <Icon name='dropdown' />
+            Pets Information
+          </Accordion.Title>
+          <Accordion.Content>
+            <Segment>
+              <PetsInfo onSubmit={this.handleSubmit} {...this.props}/>
+            </Segment>
+          </Accordion.Content>
+
+        </Accordion>
+
+        <Segment basic textAlign="right">
+          <Button type="button" onClick={reset} disabled={pristine || submitting}>Reset</Button>
+          <Button type="submit" disabled={pristine || submitting}>Submit</Button>
+        </Segment>
       </form>
     );
   }
+
 }
 
 // Decorate the form component
 RentalApplicationForm = reduxForm({
-  form: 'rentalApplication' // a unique name for this form
+  form: 'application' // a unique name for this form
 })(RentalApplicationForm);
 
 
+// You have to connect() to any reducers that you wish to connect to yourself
 RentalApplicationForm = connect(
   state => ({
-      initialValues: state.user.data
+    initialValues: state.application.data // pull initial values from account reducer
   }),
-  {load : loadUser}
+   actions                // bind account loading action creator
 )(RentalApplicationForm)
-
-
 
 export default RentalApplicationForm;
