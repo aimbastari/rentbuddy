@@ -31,6 +31,14 @@ class RentalApplication extends Component{
 
   }
 
+  handleSubmitPets = (values) => {
+    debugger;
+    this.props.saveApplication({pets : values})
+
+  }
+
+
+
   render(){
     return (
       <div className='RentalApplication-header' >
@@ -72,7 +80,7 @@ class RentalApplication extends Component{
           </Accordion.Title>
           <Accordion.Content>
             <Segment>
-              <PetsInfo onSubmit={this.handleSubmit}/>
+              <PetsInfo onSubmit={this.handleSubmitPets}/>
             </Segment>
           </Accordion.Content>
 
