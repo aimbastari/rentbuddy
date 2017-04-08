@@ -9,9 +9,9 @@ import OccupantsInfo from './OccupantsInfo';
 import PetsInfo from './PetsInfo';
 import EmploymentHistory from './EmploymentHistory';
 
-import { connect } from 'react-redux';
-
 import * as actions from './actions/RentalApplicationActions';
+
+import { connect } from 'react-redux';
 
 class RentalApplication extends Component{
 

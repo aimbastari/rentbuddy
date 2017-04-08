@@ -8,7 +8,9 @@ export default function(state = {}, action){
             return { ...state, authenticated: false, error: ""};
         case AUTH_ERROR:
             return {...state, authenticated: false, error: action.payload}
+        default:
+            return state;
+
     }
 
-    return state;
 }

@@ -2,14 +2,16 @@ import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { Segment, Button } from 'semantic-ui-react';
 
+
+import { connect } from 'react-redux';
+
 /*
 Address information form
 */
-
 class AddressInfo extends Component {
 
   render() {
-    const { handleSubmit, load, pristine, reset, submitting } = this.props;
+    const { handleSubmit, pristine, reset, submitting } = this.props;
 
 
     return (
@@ -50,7 +52,10 @@ class AddressInfo extends Component {
 
 
         <Segment basic textAlign="right">
-          <Button type="submit">Submit</Button>
+        <Segment basic textAlign="right">
+          <Button type="button" onClick={reset} disabled={pristine || submitting}>Reset</Button>
+          <Button type="submit" disabled={pristine || submitting}>Submit</Button>
+        </Segment>
         </Segment>
 
       </form>
@@ -62,5 +67,13 @@ class AddressInfo extends Component {
 AddressInfo = reduxForm({
   form: 'addressInfo' // a unique name for this form
 })(AddressInfo);
+
+AddressInfo = connect(
+  state => ({
+      initialValues: state.application.data
+  })
+)(AddressInfo)
+
+
 
 export default AddressInfo;

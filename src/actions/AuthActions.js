@@ -1,4 +1,4 @@
-import React from 'react';
+
 import axios from 'axios';
 import {AUTH_USER, UNAUTH_USER, AUTH_ERROR} from './Types'
 import {push} from 'connected-react-router';

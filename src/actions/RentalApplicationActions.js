@@ -1,21 +1,17 @@
 import axios from 'axios';
-import {GET_APPLICATION, SAVE_APPLICATION} from './Types'
+import {GET_APPLICATION} from './Types'
 import {push} from 'connected-react-router';
 
 const API_URL = 'http://localhost:3090';
 
 
 export function saveApplication(application){
-    debugger;
     return function(dispatch){
         //Submit application to server
-        debugger;
         axios.post(`${API_URL}/application`,
             application,
             {headers: {authorization: localStorage.getItem('token')}})
             .then(response => {
-
-              debugger;
                 //If request is good...
                 //Update state
 //                dispatch({type: SAVE_APPLICATION, payload: application});

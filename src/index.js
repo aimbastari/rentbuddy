@@ -7,7 +7,6 @@ import thunk from 'redux-thunk';
 import promise from 'redux-promise';
 import createLogger from 'redux-logger';
 
-import { Router } from 'react-router-dom';
 import createBrowserHistory from 'history/createBrowserHistory';
 
 import{ connectRouter, ConnectedRouter, routerMiddleware } from 'connected-react-router';

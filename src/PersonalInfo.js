@@ -5,7 +5,6 @@ import {connect} from 'react-redux';
 
 import * as actions from './actions/RentalApplicationActions';
 
-import {renderDatePicker} from './components/RenderDatePicker';
 
 /*
 Personal information form
@@ -19,7 +18,7 @@ class PersonalInfo extends Component {
 
 
   render() {
-    const { handleSubmit, load, pristine, reset, submitting } = this.props;
+    const { handleSubmit, pristine, reset, submitting } = this.props;
 
     return (
       <form onSubmit={handleSubmit} className="ui form">
@@ -41,8 +40,8 @@ class PersonalInfo extends Component {
 
         <div className="fields">
           <div className="ten wide field">
-            <label htmlFor="socialSecurity">Social Security</label>
-            <Field name="socialSecurity" component="input" type="text"/>
+            <label htmlFor="ssn">Social Security</label>
+            <Field name="ssn" component="input" type="text"/>
           </div>
           <div className="six wide field">
             <label htmlFor="dateofBirth">Date of Birth</label>
@@ -58,7 +57,8 @@ class PersonalInfo extends Component {
           </div>
         </div>
         <Segment basic textAlign="right">
-          <Button type="submit">Submit</Button>
+          <Button type="button" onClick={reset} disabled={pristine || submitting}>Reset</Button>
+          <Button type="submit" disabled={pristine || submitting}>Submit</Button>
         </Segment>
       </form>
     );
@@ -73,7 +73,7 @@ PersonalInfo = reduxForm({
 
 PersonalInfo = connect(
   state => ({
-      initialValues: state.application.application
+      initialValues: state.application.data
   }),
   actions
 )(PersonalInfo)
