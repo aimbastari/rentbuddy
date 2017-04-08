@@ -33,25 +33,22 @@ export function saveApplication(application){
     }
 }
 
-export function getApplication({application}){
+export function getApplication(){
     return function(dispatch){
-        //Submit email/password to the server
-        axios.get(`${API_URL}/application`, {application})
+        axios.get(`${API_URL}/application`,
+          {headers: {authorization: localStorage.getItem('token')}})
             .then(response => {
-                //If request is good...
-
-                //Update state to indicate user is authenticated
-                dispatch({type: GET_APPLICATION, payload: application});
+                dispatch({type: GET_APPLICATION, payload: response.data});
 
                 //redirect to dashboard
-                dispatch(push('/application'))
+//                dispatch(push('/application'))
 
             })
             .catch((response) => {
                 //If request is bad...
                 //Show error to the user
 //                dispatch(authError(response.data.error));
-                dispatch(push('/application`'))
+//                dispatch(push('/application`'))
 
             });
 

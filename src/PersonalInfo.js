@@ -3,7 +3,7 @@ import { Field, reduxForm } from 'redux-form';
 import { Segment, Button } from 'semantic-ui-react';
 import {connect} from 'react-redux';
 
-import { load as loadUser } from './reducer/UserReducer';
+import * as actions from './actions/RentalApplicationActions';
 
 import {renderDatePicker} from './components/RenderDatePicker';
 
@@ -13,7 +13,7 @@ Personal information form
 class PersonalInfo extends Component {
 
   componentWillMount(){
-
+    this.props.getApplication();
 
   }
 
@@ -21,17 +21,8 @@ class PersonalInfo extends Component {
   render() {
     const { handleSubmit, load, pristine, reset, submitting } = this.props;
 
-    const data = {
-      firstName : 'lia',
-      lastName : 'imbastari',
-      middleName: 'susana',
-      socialSecurity: 552556850
-    }
     return (
       <form onSubmit={handleSubmit} className="ui form">
-          <div>
-           <button type="button" onClick={() => load(data)}>Load Account</button>
-         </div>
         <div className="fields">
           <div className="seven wide field">
             <label htmlFor="firstName">First Name</label>
@@ -82,9 +73,9 @@ PersonalInfo = reduxForm({
 
 PersonalInfo = connect(
   state => ({
-      initialValues: state.user.data
+      initialValues: state.application.application
   }),
-  {load: loadUser}
+  actions
 )(PersonalInfo)
 
 export default PersonalInfo;

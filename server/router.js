@@ -37,6 +37,8 @@ module.exports = function(app){
 
   //Application routes
   //This route is protected and need a JWT token
+  app.get('/application', requireAuth, Application.getApplicationByUserId);
+
   app.get('/applications', requireAuth, Application.getApplications);
 
   //Get single application using param passed in
@@ -44,6 +46,7 @@ module.exports = function(app){
 
   //Get single application using userId
   app.get('/applications/:userId', requireAuth, Application.getApplicationByUserId);
+
 
 
   //Save single application

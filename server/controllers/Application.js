@@ -37,9 +37,12 @@ exports.getApplication = function(req, res){
 
 //get application by User ID
 exports.getApplicationByUserId = function(req, res){
-  const _id = req.params.userId;
+  const userId = req.user._id;
+  console.log("Inside getApplicationByUserId");
+  console.log(userId);
 
-  Application.findOne({_id}, function(err, doc){
+
+  Application.findOne({userId}, function(err, doc){
     if(err){
       console.log(err);
       return res.status(422).send({error : "unable to retrieve application usuing user id"});

@@ -10,6 +10,7 @@ import application from './ApplicationReducer.js'
 const reducers = {
   user,
   auth,
+  application,
   form: formReducer // Mount redux-from reducer as form
 }
 
