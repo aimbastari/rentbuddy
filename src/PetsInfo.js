@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Field, reduxForm } from 'redux-form';
+import { Field, FieldArray, reduxForm } from 'redux-form';
 import { Segment, Button } from 'semantic-ui-react';
 
 /*
@@ -9,46 +9,59 @@ Pets information form
 class PetsInfo extends Component {
   render() {
 
-    const { handleSubmit } = this.props;
+    const { handleSubmit, pristine, reset, submitting } = this.props;
+
+    const renderField = ({ input, label, type, meta: { touched, error } }) => (
+      <div>
+        <label>{label}</label>
+        <div>
+          <input {...input} type={type} placeholder={label}/>
+          {touched && error && <span>{error}</span>}
+        </div>
+      </div>
+    )
+
+    const renderPets = ({fields, meta: { touched, error }}) => (
+      <ul>
+        <li>
+          <button type="button" onClick={() => fields.push({})}>Add Pets</button>
+          {touched && error && <span>{error}</span>}
+        </li>
+        {fields.map((pet, index) =>
+          <li key={index}>
+            <button
+              type="button"
+              title="Remove Pet"
+              onClick={() => fields.remove(index)}/>
+            <h4>Pet #{index + 1}</h4>
+            <Field
+              name={`${pet}.description`}
+              type="text"
+              component={renderField}
+              label="description"/>
+            <Field
+              name={`${pet}.size`}
+              type="text"
+              component={renderField}
+              label="size"/>
+          </li>
+        )}
+      </ul>
+    )
+
 
     return (
       <form onSubmit={handleSubmit} className="ui form">
         <div className="fields">
-          <div className="seven wide field">
-            <label htmlFor="firstName">First Name</label>
-            <Field name="firstName" placeholder="first name" component="input" type="text"/>
+          <div className="sixteen wide field">
+            <label htmlFor="pets">pets</label>
+            <FieldArray name="pets"  component={renderPets} />
           </div>
-          <div className="four wide field">
-            <label htmlFor="middleName">Middle Name</label>
-            <Field name="middleName" placeholder="middle name" component="input" type="text"/>
-          </div>
-          <div className="five wide field">
-            <label htmlFor="lastName">Last Name</label>
-            <Field name="lastName" placeholder="last name" component="input" type="text"/>
-          </div>
-        </div>
-
-        <div className="fields">
-          <div className="ten wide field">
-            <label htmlFor="relationship">Relationship</label>
-            <Field name="relationship" component="select">
-              <option>friend</option>
-              <option>child</option>
-              <option>mother</option>
-              <option>father</option>
-              <option>husband</option>
-              <option>wife</option>
-            </Field>
-          </div>
-          <div className="six wide field">
-            <label htmlFor="howLong">How Long</label>
-            <Field name="howLong" component="input" type="text"/>
-          </div>
-
         </div>
 
         <Segment basic textAlign="right">
-          <Button type="submit">Submit</Button>
+          <Button type="button" onClick={reset} disabled={pristine || submitting}>Reset</Button>
+          <Button type="submit" disabled={pristine || submitting}>Submit</Button>
         </Segment>
       </form>
     );
