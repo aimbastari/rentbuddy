@@ -9,10 +9,8 @@ Employment History form
 class EmploymentHistory extends Component {
   render() {
 
-    const { handleSubmit } = this.props;
-
     return (
-      <form onSubmit={handleSubmit} className="ui form">
+      <div>
         <div className="fields">
           <div className="seven wide field">
             <label htmlFor="firstName">First Name</label>
@@ -46,18 +44,9 @@ class EmploymentHistory extends Component {
           </div>
 
         </div>
-
-        <Segment basic textAlign="right">
-          <Button type="submit">Submit</Button>
-        </Segment>
-      </form>
+      </div>
     );
   }
 }
-
-// Decorate the form component
-EmploymentHistory = reduxForm({
-  form: 'employmentHistory' // a unique name for this form
-})(EmploymentHistory);
 
 export default EmploymentHistory;

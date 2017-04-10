@@ -65,6 +65,17 @@ class RentalApplicationForm extends Component{
             </Segment>
           </Accordion.Content>
 
+          <Accordion.Title>
+            <Icon name='dropdown' />
+            Employment
+          </Accordion.Title>
+          <Accordion.Content>
+            <Segment>
+              <EmploymentHistory />
+            </Segment>
+          </Accordion.Content>
+
+
         </Accordion>
 
         <Segment basic textAlign="right">
