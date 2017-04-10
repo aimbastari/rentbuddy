@@ -6,7 +6,7 @@ exports.data = [
     "middleName" : "javier",
     "ssn" : "553-55-7880",
     "otherId" : "",
-    "dateOfBirth" : "2012-04-23",
+    "birthDate" : "2012-04-23",
     "email" : "aimbastari@gmail.com",
     "aliases": [
       "alias1", "alias2"
@@ -76,7 +76,7 @@ exports.data = [
     "middleName" : "sydney",
     "ssn" : "553-55-71111",
     "otherId" : "",
-    "dateOfBirth" : "2012-04-23",
+    "birthDate" : "2012-04-23",
     "email" : "tenant@gmail.com",
     "aliases": [
       "conhead", "moglee"

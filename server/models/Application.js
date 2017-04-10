@@ -9,7 +9,7 @@ const applicationSchema = new Schema({
   middleName : String,
   ssn : String,
   otherId : String,
-  dateOfBirth :  { type : Date, default : Date.now},
+  birthDate :  { type : Date, default : Date.now},
   aliases : {type: Array, "default" : []},
   email : String,
   phones : {type: Array, "default" : []},

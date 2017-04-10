@@ -52,7 +52,7 @@ class PersonalInfo extends Component {
           <div className="six wide field">
             <label htmlFor="dateOfBirth">DOB</label>
             <Field
-              name="dateOfBirth"
+              name="birthDate"
               showTime={false}
               component={renderDateTimePicker}
             />

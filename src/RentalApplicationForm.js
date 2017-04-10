@@ -9,6 +9,9 @@ import OccupantsInfo from './OccupantsInfo';
 import PetsInfo from './PetsInfo';
 import EmploymentHistory from './EmploymentHistory';
 
+import Signature from './Signature';
+
+
 import * as actions from './actions/RentalApplicationActions';
 
 import { connect } from 'react-redux';
@@ -75,6 +78,18 @@ class RentalApplicationForm extends Component{
             </Segment>
           </Accordion.Content>
 
+
+
+
+          <Accordion.Title>
+            <Icon name='dropdown' />
+            Signature
+          </Accordion.Title>
+          <Accordion.Content>
+            <Segment>
+              <Signature />
+            </Segment>
+          </Accordion.Content>
 
         </Accordion>
 
