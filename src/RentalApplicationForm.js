@@ -18,29 +18,40 @@ import { Field, reduxForm } from 'redux-form';
 class RentalApplicationForm extends Component{
 
 
+
+
   render(){
-        const { handleSubmit, pristine, reset, submitting } = this.props;
+    const { handleSubmit, pristine, reset, submitting } = this.props;
     return (
       <form onSubmit={handleSubmit} className="ui form">
         <Accordion>
           <Accordion.Title>
             <Icon name='dropdown' />
-            Personal Info
+            Personal
           </Accordion.Title>
           <Accordion.Content>
             <Segment>
-              <PersonalInfo onSubmit={this.handleSubmit}  {...this.props}/>
+              <PersonalInfo />
             </Segment>
           </Accordion.Content>
 
-
           <Accordion.Title>
             <Icon name='dropdown' />
-            Pets Information
+            Adddress
           </Accordion.Title>
           <Accordion.Content>
             <Segment>
-              <PetsInfo onSubmit={this.handleSubmit} {...this.props}/>
+              <AddressInfo />
+            </Segment>
+          </Accordion.Content>
+
+          <Accordion.Title>
+            <Icon name='dropdown' />
+            Pets
+          </Accordion.Title>
+          <Accordion.Content>
+            <Segment>
+              <PetsInfo />
             </Segment>
           </Accordion.Content>
 
@@ -50,6 +61,7 @@ class RentalApplicationForm extends Component{
           <Button type="button" onClick={reset} disabled={pristine || submitting}>Reset</Button>
           <Button type="submit" disabled={pristine || submitting}>Submit</Button>
         </Segment>
+
       </form>
     );
   }

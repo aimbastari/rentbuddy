@@ -5,6 +5,13 @@ import {connect} from 'react-redux';
 
 import * as actions from './actions/RentalApplicationActions';
 
+import DateTimePicker from 'react-widgets/lib/DateTimePicker'
+import moment from 'moment'
+import momentLocaliser from 'react-widgets/lib/localizers/moment'
+import 'react-widgets/dist/css/react-widgets.css'
+
+
+momentLocaliser(moment);
 
 /*
 Personal information form
@@ -12,7 +19,15 @@ Personal information form
 class PersonalInfo extends Component {
   render() {
 
-        const { handleSubmit, pristine, reset, submitting } = this.props;
+
+    const renderDateTimePicker = ({ input: { onChange, value }, showTime }) =>
+      <DateTimePicker
+        onChange={onChange}
+        format="DD MMM YYYY"
+        time={showTime}
+        value={!value ? null : new Date(value)}
+      />
+
     return (
       <div>
         <div className="fields">
@@ -36,9 +51,14 @@ class PersonalInfo extends Component {
             <label htmlFor="ssn">Social Security</label>
             <Field name="ssn" component="input" type="text"/>
           </div>
+
           <div className="six wide field">
-            <label htmlFor="dateofBirth">Date of Birth</label>
-            <Field name="dateOfBirth" placeholder="date of birth" component="input" type="text" />
+            <label htmlFor="dateOfBirth">DOB</label>
+            <Field
+              name="dateOfBirth"
+              showTime={false}
+              component={renderDateTimePicker}
+            />
           </div>
 
         </div>
@@ -49,10 +69,6 @@ class PersonalInfo extends Component {
             <Field name="email" component="input" type="email"/>
           </div>
         </div>
-        <Segment basic textAlign="right">
-          <Button type="button" onClick={reset} disabled={pristine || submitting}>Reset</Button>
-          <Button type="submit" disabled={pristine || submitting}>Submit</Button>
-        </Segment>
 
       </div>
     );

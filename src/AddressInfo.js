@@ -9,13 +9,9 @@ import { connect } from 'react-redux';
 Address information form
 */
 class AddressInfo extends Component {
-
   render() {
-    const { handleSubmit, pristine, reset, submitting } = this.props;
-
-
     return (
-      <form onSubmit={handleSubmit} className="ui form">
+      <div>
         <div className="fields">
           <div className="seven wide field">
             <label htmlFor="presentAddress">Present Address</label>
@@ -50,30 +46,16 @@ class AddressInfo extends Component {
           </div>
         </div>
 
+        <div className="fields">
+          <div className="sixteen wide field">
+            <label htmlFor="reasonForLeaving">Reason for leaving</label>
+            <Field name="reasonForLeaving" placeholder="reason" component="textarea" type="text"/>
+          </div>
+        </div>
 
-        <Segment basic textAlign="right">
-        <Segment basic textAlign="right">
-          <Button type="button" onClick={reset} disabled={pristine || submitting}>Reset</Button>
-          <Button type="submit" disabled={pristine || submitting}>Submit</Button>
-        </Segment>
-        </Segment>
-
-      </form>
+      </div>
     );
   }
 }
-
-// Decorate the form component
-AddressInfo = reduxForm({
-  form: 'addressInfo' // a unique name for this form
-})(AddressInfo);
-
-AddressInfo = connect(
-  state => ({
-      initialValues: state.application.data
-  })
-)(AddressInfo)
-
-
 
 export default AddressInfo;

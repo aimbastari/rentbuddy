@@ -11,8 +11,6 @@ Pets information form
 class PetsInfo extends Component {
   render() {
 
-    const { handleSubmit, pristine, reset, submitting } = this.props;
-
     const renderField = ({ input, label, type, meta: { touched, error } }) => (
       <div>
         <label>{label}</label>
@@ -31,22 +29,33 @@ class PetsInfo extends Component {
         </li>
         {fields.map((pet, index) =>
           <li key={index}>
-            <button
-              type="button"
-              title="Remove Pet"
-              onClick={() => fields.remove(index)}/>
-            <h4>Pet #{index + 1}</h4>
+          <Segment >
             <Field
               name={`${pet}.description`}
               type="text"
               component={renderField}
-              label="description"/>
+              label="description" />
             <Field
               name={`${pet}.size`}
               type="text"
-              component={renderField}
-              label="size"/>
+              component="select"
+              label="size">
+                <option></option>
+                <option value="small">small -less 20 pounds</option>
+                <option value="medium">medium -20 - 40 pounds</option>
+                <option value="large">large greater 40 pounds</option>
+
+            </Field>
+
+            <Button
+                type="button"
+                title="Remove Pet"
+                onClick={() => fields.remove(index)}>remove pet </Button>
+
+
+          </Segment>
           </li>
+
         )}
       </ul>
     )
@@ -61,10 +70,7 @@ class PetsInfo extends Component {
           </div>
         </div>
 
-        <Segment basic textAlign="right">
-          <Button type="button" onClick={reset} disabled={pristine || submitting}>Reset</Button>
-          <Button type="submit" disabled={pristine || submitting}>Submit</Button>
-        </Segment>
+
      </div>
     );
   }
