@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import { Field, FieldArray, reduxForm } from 'redux-form';
+import { Field, FieldArray } from 'redux-form';
 import { Segment, Button } from 'semantic-ui-react';
-import { connect }  from 'react-redux';
-import * as actions from './actions/RentalApplicationActions';
 
 /*
 Pets information form

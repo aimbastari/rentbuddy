@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
-import { Field, reduxForm } from 'redux-form';
+import { Field } from 'redux-form';
 import { Segment, Button } from 'semantic-ui-react';
-
-
-import { connect } from 'react-redux';
 
 /*
 Address information form

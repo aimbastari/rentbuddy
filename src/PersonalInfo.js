@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
-import { Field, reduxForm } from 'redux-form';
-import { Segment, Button } from 'semantic-ui-react';
-import {connect} from 'react-redux';
-
-import * as actions from './actions/RentalApplicationActions';
+import { Field } from 'redux-form';
+import { Segment } from 'semantic-ui-react';
 
 import DateTimePicker from 'react-widgets/lib/DateTimePicker'
 import moment from 'moment'

@@ -12,7 +12,7 @@ import EmploymentHistory from './EmploymentHistory';
 import * as actions from './actions/RentalApplicationActions';
 
 import { connect } from 'react-redux';
-import { Field, reduxForm } from 'redux-form';
+import { reduxForm } from 'redux-form';
 
 
 class RentalApplicationForm extends Component{
