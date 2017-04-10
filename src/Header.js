@@ -13,6 +13,7 @@ const Header = () => {
       <li><Link to="/dashboard">Dashboard</Link></li>
       <li><Link to="/application">Application</Link></li>
       <li><Link to="/agreement">Lease Agreement</Link></li>
+      
 
     </ul>
   );

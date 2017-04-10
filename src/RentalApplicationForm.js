@@ -47,6 +47,16 @@ class RentalApplicationForm extends Component{
 
           <Accordion.Title>
             <Icon name='dropdown' />
+            Occupants
+          </Accordion.Title>
+          <Accordion.Content>
+            <Segment>
+              <OccupantsInfo />
+            </Segment>
+          </Accordion.Content>
+
+          <Accordion.Title>
+            <Icon name='dropdown' />
             Pets
           </Accordion.Title>
           <Accordion.Content>

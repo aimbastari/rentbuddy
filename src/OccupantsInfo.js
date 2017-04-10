@@ -5,14 +5,10 @@ import { Segment, Button } from 'semantic-ui-react';
 /*
 Occupants information form
 */
-
 class OccupantsInfo extends Component {
   render() {
-
-    const { handleSubmit } = this.props;
-
     return (
-      <form onSubmit={handleSubmit} className="ui form">
+      <div>
         <div className="fields">
           <div className="seven wide field">
             <label htmlFor="firstName">First Name</label>
@@ -38,26 +34,19 @@ class OccupantsInfo extends Component {
               <option>father</option>
               <option>husband</option>
               <option>wife</option>
+              <option>other</option>
+
             </Field>
           </div>
           <div className="six wide field">
-            <label htmlFor="howLong">How Long</label>
-            <Field name="howLong" component="input" type="text"/>
+            <label htmlFor="adult">18 or older</label>
+            <Field name="adult" id="adult" component="input" type="checkbox"/>
           </div>
 
         </div>
-
-        <Segment basic textAlign="right">
-          <Button type="submit">Submit</Button>
-        </Segment>
-      </form>
+      </div>
     );
   }
 }
-
-// Decorate the form component
-OccupantsInfo = reduxForm({
-  form: 'occupantsInfo' // a unique name for this form
-})(OccupantsInfo);
 
 export default OccupantsInfo;
