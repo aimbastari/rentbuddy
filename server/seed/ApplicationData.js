@@ -49,15 +49,17 @@ exports.data = [
       {"name" : "wells fargo", "address" : "1232 bank st", "number" : 2312312312, "monthlyPayment" : 2000}
     ],
     "emergencyContacts" : [
-      {"name" : "lia imbastari", "address" : "2460 Meford Pl", "phone" : "7142904069", "city" : "fullerton", "relationship" : "mother"},
-      {"name" : "lia imbastari", "address" : "2460 Meford Pl", "phone" : "7142904069", "city" : "fullerton", "relationship" : "mother"},
+      {"name" : "Jorge Palacios", "address" : "2460 Meford Pl", "phones" : [ {"number" : "7142904069", "type" : "cell"}, {"number" : "7147717588", "type" : "home"}], "relationship" : "mother", "length" : 9},
+      {"name" : "Peloncho", "address" : "2460 Meford Pl", "phones" : [ {"number" : "7142904069", "type" : "cell"}, {"number" : "7147717588", "type" : "home"}], "relationship" : "mother", "length" : 5},
+      {"name" : "Jorge Palacios", "address" : "2460 Meford Pl", "phones" : [ {"number" : "7142904069", "type" : "cell"}, {"number" : "7147717588", "type" : "home"}], "relationship" : "mother", "length" : 9},
+      {"name" : "Peloncho", "address" : "2460 Meford Pl", "phones" : [ {"number" : "7142904069", "type" : "cell"}, {"number" : "7147717588", "type" : "home"}], "relationship" : "mother", "length" : 5},
     ],
     "references" : [
       {"name" : "lia imbastari", "address" : "2460 Meford Pl", "phones" : [ {"number" : "7142904069", "type" : "cell"}, {"number" : "7147717588", "type" : "home"}], "relationship" : "mother", "length" : 9},
       {"name" : "lia imbastari", "address" : "2460 Meford Pl", "phones" : [ {"number" : "7142904069", "type" : "cell"}, {"number" : "7147717588", "type" : "home"}], "relationship" : "mother", "length" : 5},
     ],
     "autos" : [
-      {"make" : "gmc", "model" : "envoy", "year" : "2013", "license" : "433232434"}
+      {"make" : "gmc", "model" : "envoy", "year" : "2013", "color" : "red", "license" : "433232434"}
     ],
     "bankruptcies" : true,
     "evictions" : false,
@@ -120,17 +122,17 @@ exports.data = [
       {"name" : "wells fargo", "address" : "1232 bank st", "number" : 2312312312, "monthlyPayment" : 2000}
     ],
     "emergencyContacts" : [
-      {"name" : "lia imbastari", "address" : "2460 Meford Pl", "phone" : "7142904069", "city" : "fullerton", "relationship" : "mother"},
-      {"name" : "lia imbastari", "address" : "2460 Meford Pl", "phone" : "7142904069", "city" : "fullerton", "relationship" : "mother"},
+      {"name" : "Jorge Palacios", "address" : "2460 Meford Pl", "phones" : [ {"number" : "7142904069", "type" : "cell"}, {"number" : "7147717588", "type" : "home"}], "relationship" : "mother", "length" : 9},
+      {"name" : "Peloncho", "address" : "2460 Meford Pl", "phones" : [ {"number" : "7142904069", "type" : "cell"}, {"number" : "7147717588", "type" : "home"}], "relationship" : "mother", "length" : 5},
     ],
     "references" : [
       {"name" : "Jorge Palacios", "address" : "2460 Meford Pl", "phones" : [ {"number" : "7142904069", "type" : "cell"}, {"number" : "7147717588", "type" : "home"}], "relationship" : "mother", "length" : 9},
       {"name" : "Peloncho", "address" : "2460 Meford Pl", "phones" : [ {"number" : "7142904069", "type" : "cell"}, {"number" : "7147717588", "type" : "home"}], "relationship" : "mother", "length" : 5},
     ],
     "autos" : [
-      {"make" : "gmc", "model" : "envoy", "year" : "2013", "license" : "433232434"},
-      {"make" : "gmc", "model" : "envoy", "year" : "2013", "license" : "433232434"},
-      {"make" : "gmc", "model" : "envoy", "year" : "2013", "license" : "433232434"},
+      {"make" : "gmc", "model" : "envoy", "year" : "2013", "color" : "white", "license" : "433232434"},
+      {"make" : "gmc", "model" : "envoy", "year" : "2013", "color" : "white", "license" : "433232434"},
+      {"make" : "gmc", "model" : "envoy", "year" : "2013", "color" : "white", "license" : "433232434"},
     ],
     "bankruptcies" : true,
     "evictions" : false,

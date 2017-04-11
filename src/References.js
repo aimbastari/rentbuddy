@@ -6,6 +6,7 @@ import { Segment, Button } from 'semantic-ui-react';
 references information form
 */
 class References extends Component {
+
   render() {
 
     const renderReferences = ({fields, meta: { touched, error, submitFailed }}) => (
@@ -27,17 +28,13 @@ class References extends Component {
 
             <div>
               <div className="fields">
-                <div className="seven wide field">
-                  <label htmlFor="firstName">First Name</label>
-                  <Field name={`${reference}.firstName`} placeholder="first name" component="input" type="text"/>
+                <div className="eight wide field">
+                  <label htmlFor="name">Full Name</label>
+                  <Field name={`${reference}.name`} placeholder="full name" component="input" type="text"/>
                 </div>
-                <div className="four wide field">
-                  <label htmlFor="middleName">Middle Name</label>
-                  <Field name={`${reference}.middleName`} placeholder="middle name" component="input" type="text"/>
-                </div>
-                <div className="five wide field">
-                  <label htmlFor="lastName">Last Name</label>
-                  <Field name={`${reference}.lastName`} placeholder="last name" component="input" type="text"/>
+                <div className="eight wide field">
+                  <label htmlFor="address">Address</label>
+                  <Field name={`${reference}.address`} placeholder="Address" component="input" type="text"/>
                 </div>
               </div>
 
@@ -51,17 +48,24 @@ class References extends Component {
                     <option>father</option>
                     <option>husband</option>
                     <option>wife</option>
+                    <option>husband</option>
                     <option>other</option>
 
                   </Field>
                 </div>
                 <div className="six wide field">
-                  <label htmlFor="adult">18 or older</label>
-                  <Field name={`${reference}.adult`} id="adult" component="input" type="checkbox"/>
+                  <label htmlFor="length">How long(yrs)?</label>
+                  <Field name={`${reference}.length`}  component="select">
+                    <option value="1">-1</option>
+                    <option value="5">1-5</option>
+                    <option value="10">5-10</option>
+                    <option value="11">10+</option>
+                  </Field>
                 </div>
-
               </div>
             </div>
+
+            <FieldArray name={`${reference}.phones`} component={renderPhones}/>
 
           </li>
           </Segment>
@@ -71,6 +75,57 @@ class References extends Component {
 
       </ul>
 
+    )
+
+
+    const renderPhones = ({ fields, meta: { error } }) => (
+      <ul>
+        <li>
+          <Button size="tiny" color="orange" onClick={() => fields.push()}>Add Phone</Button>
+        </li>
+        {fields.map((phone, index) =>
+          <Segment>
+            <div className="fields">
+                <div className="eight wide field">
+                  <Field
+                    name={`${phone}.number`}
+                    type="text"
+                    component="input"
+                    label={`Phone #${index + 1}`}/>
+                </div>
+                <div className="four wide field">
+                    <Field name={`${phone}.type`} component="select">
+                      <option>cell</option>
+                      <option>home</option>
+                      <option>work</option>
+                      <option>other</option>
+                    </Field>
+                </div>
+                <div className="four wide field">
+                  <Button
+                    compact
+                    size="mini"
+                    title="Remove Phone"
+                    color="red"
+                    onClick={() => fields.remove(index)}>
+                    remove
+                  </Button>
+                </div>
+          </div>
+        </Segment>
+        )}
+        {error && <li className="error">{error}</li>}
+      </ul>
+    )
+
+    const renderField = ({ input, label, type, meta: { touched, error } }) => (
+      <div>
+        <label>{label}</label>
+        <div>
+          <input {...input} type={type} placeholder={label}/>
+          {touched && error && <span>{error}</span>}
+        </div>
+      </div>
     )
 
 
