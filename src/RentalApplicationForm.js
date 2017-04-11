@@ -9,7 +9,10 @@ import OccupantsInfo from './OccupantsInfo';
 import PetsInfo from './PetsInfo';
 import EmploymentHistory from './EmploymentHistory';
 
+import EmergencyContacts from './EmergencyContacts';
+import References from './References';
 import Signature from './Signature';
+
 
 
 import * as actions from './actions/RentalApplicationActions';
@@ -80,6 +83,25 @@ class RentalApplicationForm extends Component{
 
 
 
+          <Accordion.Title>
+            <Icon name='dropdown' />
+            Emergency Contacts
+          </Accordion.Title>
+          <Accordion.Content>
+            <Segment>
+              <EmergencyContacts />
+            </Segment>
+          </Accordion.Content>
+
+          <Accordion.Title>
+            <Icon name='dropdown' />
+            References
+          </Accordion.Title>
+          <Accordion.Content>
+            <Segment>
+              <References />
+            </Segment>
+          </Accordion.Content>
 
           <Accordion.Title>
             <Icon name='dropdown' />
@@ -90,6 +112,10 @@ class RentalApplicationForm extends Component{
               <Signature />
             </Segment>
           </Accordion.Content>
+
+
+
+
 
         </Accordion>
 

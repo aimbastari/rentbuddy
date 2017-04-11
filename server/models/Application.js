@@ -31,7 +31,7 @@ const applicationSchema = new Schema({
   bankAccounts : {type: Array, "default" : []},
   creditors : {type: Array, "default" : []},
   emergencyContacts : {type: Array, "default" : []},
-  personalReferences : {type: Array, "default" : []},
+  references : {type: Array, "default" : []},
   autos : {type: Array, "default" : []},
   bankruptcies : Boolean,
   evictions : Boolean,
