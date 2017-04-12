@@ -1,58 +1,139 @@
 import React, { Component } from 'react';
-import { Segment, Label } from 'semantic-ui-react';
-import { Field } from 'redux-form';
+import { Field, FieldArray } from 'redux-form';
+import { Segment, Button } from 'semantic-ui-react';
 
-import DateTimePicker from 'react-widgets/lib/DateTimePicker'
-import moment from 'moment'
-import momentLocaliser from 'react-widgets/lib/localizers/moment'
-import 'react-widgets/dist/css/react-widgets.css'
+/*
+Emergency Contacts Informatiion form
+*/
+class EmergencyContacts extends Component {
+
+  render() {
+
+    const renderContacts = ({fields, meta: { touched, error, submitFailed }}) => (
+
+      <ul>
+        <li>
+          <Button type="button" onClick={() => fields.push({})}>Add Contact</Button>
+          {(touched || submitFailed) && error && <span>{error}</span>}
+        </li>
+        <Segment>
+        {fields.map((contact, index) =>
+          <Segment>
+          <li key={index}>
+            <Button
+              type="button"
+              title="Remove Contact"
+              onClick={() => fields.remove(index)}> Remove Contact </Button>
+            Contact #{index + 1}
+
+            <div>
+              <div className="fields">
+                <div className="eight wide field">
+                  <label htmlFor="name">Full Name</label>
+                  <Field name={`${contact}.name`} placeholder="full name" component="input" type="text"/>
+                </div>
+                <div className="eight wide field">
+                  <label htmlFor="address">Address</label>
+                  <Field name={`${contact}.address`} placeholder="Address" component="input" type="text"/>
+                </div>
+              </div>
+
+              <div className="fields">
+                <div className="ten wide field">
+                  <label htmlFor="relationship">Relationship</label>
+                  <Field name={`${contact}.relationship`} component="select">
+                    <option>friend</option>
+                    <option>child</option>
+                    <option>mother</option>
+                    <option>father</option>
+                    <option>husband</option>
+                    <option>wife</option>
+                    <option>husband</option>
+                    <option>other</option>
+
+                  </Field>
+                </div>
+                <div className="six wide field">
+                  <label htmlFor="length">How long(yrs)?</label>
+                  <Field name={`${contact}.length`}  component="select">
+                    <option value="1">-1</option>
+                    <option value="5">1-5</option>
+                    <option value="10">5-10</option>
+                    <option value="11">10+</option>
+                  </Field>
+                </div>
+              </div>
+            </div>
+
+            <FieldArray name={`${contact}.phones`} component={renderPhones}/>
+
+          </li>
+          </Segment>
+
+        )}
+        </Segment>
+
+      </ul>
+
+    )
 
 
-momentLocaliser(moment);
+    const renderPhones = ({ fields, meta: { error } }) => (
+      <ul>
+        <li>
+          <Button size="tiny" color="orange" onClick={() => fields.push()}>Add Phone</Button>
+        </li>
+        {fields.map((phone, index) =>
+          <Segment>
+            <div className="fields">
+                <div className="eight wide field">
+                  <Field
+                    name={`${phone}.number`}
+                    type="text"
+                    component="input"
+                    label={`Phone #${index + 1}`}/>
+                </div>
+                <div className="four wide field">
+                    <Field name={`${phone}.type`} component="select">
+                      <option>cell</option>
+                      <option>home</option>
+                      <option>work</option>
+                      <option>other</option>
+                    </Field>
+                </div>
+                <div className="four wide field">
+                  <Button
+                    compact
+                    size="mini"
+                    title="Remove Phone"
+                    color="red"
+                    onClick={() => fields.remove(index)}>
+                    remove
+                  </Button>
+                </div>
+          </div>
+        </Segment>
+        )}
+        {error && <li className="error">{error}</li>}
+      </ul>
+    )
 
-
-
-
-const renderDateTimePicker = ({ input: { onChange, value }, showTime }) =>
-  <DateTimePicker
-    onChange={onChange}
-    format="DD MMM YYYY"
-    time={showTime}
-    value={!value ? null : new Date(value)}
-  />
-
-
-const EmergencyContacts = () => (
-  <div>
-    <Segment>
-      <Label>
-        Applicant represent that all the above Rental Application entries are true and correct and
-        hereby authorizes verification of the above items including, but not limited to the obtaining of
-        a credit report and agrees to furnish additional credit references upon request. Applicant consents
-        to allow owner/manager to disclose tenancy information to previous or subequent owner/managers.
-      </Label>
-
-      <div className="fields">
-        <div className="ten wide field">
-          <label htmlFor="ssn">Applicant Signature</label>
-          <Field name="signature" component="input" type="text"/>
+    const renderField = ({ input, label, type, meta: { touched, error } }) => (
+      <div>
+        <label>{label}</label>
+        <div>
+          <input {...input} type={type} placeholder={label}/>
+          {touched && error && <span>{error}</span>}
         </div>
-
-        <div className="six wide field">
-          <label htmlFor="signDate">date signed</label>
-          <Field
-            name="signDate"
-            showTime={false}
-            component={renderDateTimePicker}
-          />
-        </div>
-
       </div>
+    )
 
-    </Segment>
 
-  </div>
-);
+    return (
+      <FieldArray name="emergencyContacts" component={renderContacts} />
 
+    );
+  }
+}
 
 export default EmergencyContacts;

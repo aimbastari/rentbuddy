@@ -11,6 +11,21 @@ class EmploymentHistory extends Component {
 
     return (
       <div>
+        <div classsName="fields">
+          <div className="ten wide field ">
+            <label htmlFor="grossIncome">Gross Income</label>
+            <Field name="grossIncome" placeholder="gross income" component="input" type="text"/>
+
+          </div>
+          <div className="six wide field">
+            <label>Pay Interval</label>
+            <label><Field name="paymentInterval" component="input" type="radio" value="week"/> week</label>
+            <label><Field name="paymentInterval" component="input" type="radio" value="month"/> month</label>
+            <label><Field name="paymentInterval" component="input" type="radio" value="year"/> year</label>
+          </div>
+
+        </div>
+
         <div className="fields">
           <div className="seven wide field">
             <label htmlFor="firstName">First Name</label>
