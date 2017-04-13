@@ -25,8 +25,9 @@ exports.data = [
       {"street" : "2460 Meford Pl", "apt" : "2F", "city" : "fullerton", "state" : "CA", "zipcode" : "92801", "dateIn" : "2012-04-23T18:25:43.511Z", "dateOut" : "2012-04-23T18:25:43.511Z", "manager" : "pepe", "number" : 7149045358, "reasonForLeaving" : "rent to expensive"},
     ],
     "employments" : [
-      {"supervisor" : "jose pelotas", "phone" : "7149045358", "positionLength" : "12", "position" : "software engineer", "name" : "IBM", "street" : "1101 IBM way", "city" : "LA", "state" : "CA", "zipcode" : "92833"},
-      {"supervisor" : "jose pelotas", "phone" : "7149045358", "positionLength" : "12", "position" : "software engineer", "name" : "IBM", "street" : "1101 IBM way", "city" : "LA", "state" : "CA", "zipcode" : "92833"}
+      {"company" : "IBM", "supervisor" : "jose pelotas", "phones" : [ {"number" : "7142904069", "type" : "cell"}, {"number" : "7147717588", "type" : "home"}], "email" : "jpelotas.gmail.com", "position" : "software engineer",  "length" : "12", "address" : "1101 IBM way LA CA 92833"},
+      {"company" : "IBM", "supervisor" : "jose pelotas", "phones" : [ {"number" : "7142904069", "type" : "cell"}, {"number" : "7147717588", "type" : "home"}], "email" : "jpelotas.gmail.com", "position" : "software engineer",  "length" : "12", "address" : "1101 IBM way LA CA 92833"},
+      {"company" : "IBM", "supervisor" : "jose pelotas", "phones" : [ {"number" : "7142904069", "type" : "cell"}, {"number" : "7147717588", "type" : "home"}], "email" : "jpelotas.gmail.com", "position" : "software engineer",  "length" : "12", "address" : "1101 IBM way LA CA 92833"}
     ],
     "occupants" : [
       {"firstName" : "justin", "middleName" : "A", "lastName" : "imbastari", "relationship" : "son", "adult" : "false"},
@@ -39,7 +40,7 @@ exports.data = [
     "liquidFurniture" : "none",
     "memberArmedForces" : true,
     "grossIncome" : 12345,
-    "paymentInterval" : 30,
+    "paymentInterval" : "year",
     "bankAccounts" : [
       {"name" : "wells fargo", "address" : "1232 bank st", "type" : "savings", "number" : 79879789},
       {"name" : "wells fargo", "address" : "1232 bank st", "type" : "checking", "number" : 79879789}
@@ -97,8 +98,8 @@ exports.data = [
       {"street" : "2460 Meford Pl", "apt" : "11C", "city" : "fullerton", "state" : "CA", "zipcode" : "92801", "dateIn" : "2012-04-23T18:25:43.511Z", "dateOut" : "2012-04-23T18:25:43.511Z", "manager" : "pepe", "number" : 7149045358, "reasonForLeaving" : "rent to expensive"},
     ],
     "employments" : [
-      {"supervisor" : "jose pelotas", "phone" : "7149045358", "positionLength" : "12", "position" : "software engineer", "name" : "IBM", "street" : "1101 IBM way", "city" : "LA", "state" : "CA", "zipcode" : "92833"},
-      {"supervisor" : "jose pelotas2", "phone" : "7149045358", "positionLength" : "12", "position" : "software engineer", "name" : "IBM", "street" : "1101 IBM way", "city" : "LA", "state" : "CA", "zipcode" : "92833"}
+      {"company" : "Apple", "supervisor" : "pelopincho", "phones" : [ {"number" : "7142904069", "type" : "cell"}, {"number" : "7147717588", "type" : "home"}], "email" : "jpelopincho.gmail.com", "position" : "software engineer",  "length" : "12", "address" : "1101 IBM way LA CA 92833"},
+      {"company" : "IBM", "supervisor" : "jose pelotas", "phones" : [ {"number" : "7142904069", "type" : "cell"}, {"number" : "7147717588", "type" : "home"}], "email" : "jpelotas.gmail.com", "position" : "software engineer",  "length" : "12", "address" : "1101 IBM way LA CA 92833"},
     ],
     "occupants" : [
       {"firstName" : "justin", "middleName" : "A", "lastName" : "imbastari", "relationship" : "son", "adult" : "true"},
@@ -112,7 +113,7 @@ exports.data = [
     "liquidFurniture" : "none",
     "memberArmedForces" : true,
     "grossIncome" : 12345,
-    "paymentInterval" : 30,
+    "paymentInterval" : "year",
     "bankAccounts" : [
       {"name" : "wells fargo", "address" : "1232 bank st", "type" : "savings", "number" : 79879789},
       {"name" : "wells fargo", "address" : "1232 bank st", "type" : "checking", "number" : 79879789}
