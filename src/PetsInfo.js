@@ -22,36 +22,39 @@ class PetsInfo extends Component {
     const renderPets = ({fields, meta: { touched, error }}) => (
       <ul>
         <li>
-          <button type="button" onClick={() => fields.push({})}>Add Pets</button>
+          <Button  onClick={() => fields.push({})}>Add Pet</Button>
           {touched && error && <span>{error}</span>}
         </li>
         {fields.map((pet, index) =>
           <li key={index}>
-          <Segment >
-            <Field
-              name={`${pet}.description`}
-              type="text"
-              component={renderField}
-              label="description" />
-            <Field
-              name={`${pet}.size`}
-              type="text"
-              component="select"
-              label="size">
-                <option></option>
-                <option value="small">small -less 20 pounds</option>
-                <option value="medium">medium -20 - 40 pounds</option>
-                <option value="large">large greater 40 pounds</option>
+          <div className="fields">
+            <div className="eight field wide">
+              <Field
+                name={`${pet}.description`}
+                type="text"
+                component={renderField}/>
+            </div>
 
-            </Field>
+            <div className="four field wide">
+              <Field
+                name={`${pet}.size`}
+                type="text"
+                component="select">
+                  <option></option>
+                  <option value="small">small -less 20 pounds</option>
+                  <option value="medium">medium -20 - 40 pounds</option>
+                  <option value="large">large greater 40 pounds</option>
+              </Field>
+            </div>
 
-            <Button
-                type="button"
-                title="Remove Pet"
-                onClick={() => fields.remove(index)}>remove pet </Button>
+            <div className="four field wide">
+              <Button
+                  type="button"
+                  title="Remove Pet"
+                  onClick={() => fields.remove(index)}>remove pet </Button>
+            </div>
 
-
-          </Segment>
+            </div>
           </li>
 
         )}
@@ -63,7 +66,7 @@ class PetsInfo extends Component {
       <div>
         <div className="fields">
           <div className="sixteen wide field">
-            <label htmlFor="pets">pets</label>
+            <label htmlFor="pets">Describe pet:</label>
             <FieldArray name="pets"  component={renderPets} />
           </div>
         </div>

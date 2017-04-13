@@ -123,8 +123,6 @@ class EmploymentHistory extends Component {
     )
 
 
-
-
     return (
       <div>
         <Segment raised className="fields">
