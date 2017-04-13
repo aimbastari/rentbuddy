@@ -38,31 +38,6 @@ class EmergencyContacts extends Component {
                 </div>
               </div>
 
-              <div className="fields">
-                <div className="ten wide field">
-                  <label htmlFor="relationship">Relationship</label>
-                  <Field name={`${contact}.relationship`} component="select">
-                    <option>friend</option>
-                    <option>child</option>
-                    <option>mother</option>
-                    <option>father</option>
-                    <option>husband</option>
-                    <option>wife</option>
-                    <option>husband</option>
-                    <option>other</option>
-
-                  </Field>
-                </div>
-                <div className="six wide field">
-                  <label htmlFor="length">How long(yrs)?</label>
-                  <Field name={`${contact}.length`}  component="select">
-                    <option value="1">-1</option>
-                    <option value="5">1-5</option>
-                    <option value="10">5-10</option>
-                    <option value="11">10+</option>
-                  </Field>
-                </div>
-              </div>
             </div>
 
             <FieldArray name={`${contact}.phones`} component={renderPhones}/>

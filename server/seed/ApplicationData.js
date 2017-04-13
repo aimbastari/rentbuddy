@@ -49,10 +49,10 @@ exports.data = [
       {"name" : "wells fargo", "address" : "1232 bank st", "number" : 2312312312, "monthlyPayment" : 2000}
     ],
     "emergencyContacts" : [
-      {"name" : "Jorge Palacios", "address" : "2460 Meford Pl", "phones" : [ {"number" : "7142904069", "type" : "cell"}, {"number" : "7147717588", "type" : "home"}], "relationship" : "mother", "length" : 9},
-      {"name" : "Peloncho", "address" : "2460 Meford Pl", "phones" : [ {"number" : "7142904069", "type" : "cell"}, {"number" : "7147717588", "type" : "home"}], "relationship" : "mother", "length" : 5},
-      {"name" : "Jorge Palacios", "address" : "2460 Meford Pl", "phones" : [ {"number" : "7142904069", "type" : "cell"}, {"number" : "7147717588", "type" : "home"}], "relationship" : "mother", "length" : 9},
-      {"name" : "Peloncho", "address" : "2460 Meford Pl", "phones" : [ {"number" : "7142904069", "type" : "cell"}, {"number" : "7147717588", "type" : "home"}], "relationship" : "mother", "length" : 5},
+      {"name" : "Jorge Palacios", "address" : "2460 Meford Pl", "phones" : [ {"number" : "7142904069", "type" : "cell"}, {"number" : "7147717588", "type" : "home"}]},
+      {"name" : "Peloncho", "address" : "2460 Meford Pl", "phones" : [ {"number" : "7142904069", "type" : "cell"}, {"number" : "7147717588", "type" : "home"}]},
+      {"name" : "Jorge Palacios", "address" : "2460 Meford Pl", "phones" : [ {"number" : "7142904069", "type" : "cell"}, {"number" : "7147717588", "type" : "home"}]},
+      {"name" : "Peloncho", "address" : "2460 Meford Pl", "phones" : [ {"number" : "7142904069", "type" : "cell"}, {"number" : "7147717588", "type" : "home"}]},
     ],
     "references" : [
       {"name" : "lia imbastari", "address" : "2460 Meford Pl", "phones" : [ {"number" : "7142904069", "type" : "cell"}, {"number" : "7147717588", "type" : "home"}], "relationship" : "mother", "length" : 9},
@@ -122,8 +122,8 @@ exports.data = [
       {"name" : "wells fargo", "address" : "1232 bank st", "number" : 2312312312, "monthlyPayment" : 2000}
     ],
     "emergencyContacts" : [
-      {"name" : "Jorge Palacios", "address" : "2460 Meford Pl", "phones" : [ {"number" : "7142904069", "type" : "cell"}, {"number" : "7147717588", "type" : "home"}], "relationship" : "mother", "length" : 9},
-      {"name" : "Peloncho", "address" : "2460 Meford Pl", "phones" : [ {"number" : "7142904069", "type" : "cell"}, {"number" : "7147717588", "type" : "home"}], "relationship" : "mother", "length" : 5},
+      {"name" : "Jorge Palacios", "address" : "2460 Meford Pl", "phones" : [ {"number" : "7142904069", "type" : "cell"}, {"number" : "7147717588", "type" : "home"}]},
+      {"name" : "Peloncho", "address" : "2460 Meford Pl", "phones" : [ {"number" : "7142904069", "type" : "cell"}, {"number" : "7147717588", "type" : "home"}]},
     ],
     "references" : [
       {"name" : "Jorge Palacios", "address" : "2460 Meford Pl", "phones" : [ {"number" : "7142904069", "type" : "cell"}, {"number" : "7147717588", "type" : "home"}], "relationship" : "mother", "length" : 9},
