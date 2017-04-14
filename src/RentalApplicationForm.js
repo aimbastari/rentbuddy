@@ -11,6 +11,9 @@ import EmploymentHistory from './EmploymentHistory';
 
 import EmergencyContacts from './EmergencyContacts';
 import References from './References';
+import Autos from './Autos';
+
+
 import Signature from './Signature';
 
 
@@ -105,6 +108,16 @@ class RentalApplicationForm extends Component{
 
           <Accordion.Title>
             <Icon name='dropdown' />
+            Autos
+          </Accordion.Title>
+          <Accordion.Content>
+            <Segment>
+              <Autos />
+            </Segment>
+          </Accordion.Content>
+
+          <Accordion.Title>
+            <Icon name='dropdown' />
             Signature
           </Accordion.Title>
           <Accordion.Content>
@@ -112,9 +125,6 @@ class RentalApplicationForm extends Component{
               <Signature />
             </Segment>
           </Accordion.Content>
-
-
-
 
 
         </Accordion>
