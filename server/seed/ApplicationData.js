@@ -21,8 +21,8 @@ exports.data = [
       "state" : "CA"
     },
     "addresses": [
-      {"street" : "1101 N Avila Pl", "apt" : "1C", "city" : "Orange", "state" : "CA", "zipcode" : "92869", "dateIn" : "2012-04-23T18:25:43.511Z", "dateOut" : "2012-04-23T18:25:43.511Z", "manager" : "pepe", "number" : 7149045358, "reasonForLeaving" : "rent to expensive"},
-      {"street" : "2460 Meford Pl", "apt" : "2F", "city" : "fullerton", "state" : "CA", "zipcode" : "92801", "dateIn" : "2012-04-23T18:25:43.511Z", "dateOut" : "2012-04-23T18:25:43.511Z", "manager" : "pepe", "number" : 7149045358, "reasonForLeaving" : "rent to expensive"},
+      {"name" : "Ocean Breeze1", "street" : "1101 N Avila Pl", "apt" : "1C", "city" : "Orange", "state" : "CA", "zipcode" : "92869", "dateIn" : "2012-04-23T18:25:43.511Z", "dateOut" : "2012-04-23T18:25:43.511Z", "manager" : "pepe", "phones" : [ {"number" : "7142904069", "type" : "cell"}, {"number" : "7147717588", "type" : "home"}], "email" : "jpelotas.gmail.com", "reasonForLeaving" : "rent to expensive" },
+      {"name" : "Ocean Breeze2", "street" : "2460 Meford Pl", "apt" : "2F", "city" : "fullerton", "state" : "CA", "zipcode" : "92801", "dateIn" : "2012-04-23T18:25:43.511Z", "dateOut" : "2012-04-23T18:25:43.511Z", "manager" : "pepe", "phones" : [ {"number" : "7142904069", "type" : "cell"}, {"number" : "7147717588", "type" : "home"}], "email" : "jpelotas.gmail.com", "reasonForLeaving" : "rent to expensive" },
     ],
     "employments" : [
       {"company" : "IBM", "supervisor" : "jose pelotas", "phones" : [ {"number" : "7142904069", "type" : "cell"}, {"number" : "7147717588", "type" : "home"}], "email" : "jpelotas.gmail.com", "position" : "software engineer",  "length" : "12", "address" : "1101 IBM way LA CA 92833"},
@@ -94,8 +94,8 @@ exports.data = [
       "state" : "CA"
     },
     "addresses": [
-      {"street" : "1101 N Avila Pl", "apt" : "1C", "city" : "Orange", "state" : "CA", "zipcode" : "92869", "dateIn" : "2012-04-23T18:25:43.511Z", "dateOut" : "2012-04-23T18:25:43.511Z", "manager" : "pepe", "number" : 7149045358, "reasonForLeaving" : "rent to expensive"},
-      {"street" : "2460 Meford Pl", "apt" : "11C", "city" : "fullerton", "state" : "CA", "zipcode" : "92801", "dateIn" : "2012-04-23T18:25:43.511Z", "dateOut" : "2012-04-23T18:25:43.511Z", "manager" : "pepe", "number" : 7149045358, "reasonForLeaving" : "rent to expensive"},
+      {"name" : "Ocean Breeze3", "street" : "Freeway over pass", "apt" : "1C", "city" : "Orange", "state" : "CA", "zipcode" : "92869", "dateIn" : "2012-04-23T18:25:43.511Z", "dateOut" : "2012-04-23T18:25:43.511Z", "manager" : "pepe", "phones" : [ {"number" : "7142904069", "type" : "cell"}, {"number" : "7147717588", "type" : "home"}], "email" : "jpelotas.gmail.com", "reasonForLeaving" : "rent to expensive" },
+      {"name" : "Ocean Breeze4", "street" : "2460 Meford Pl", "apt" : "2F", "city" : "fullerton", "state" : "CA", "zipcode" : "92801", "dateIn" : "2012-04-23T18:25:43.511Z", "dateOut" : "2012-04-23T18:25:43.511Z", "manager" : "pepe", "phones" : [ {"number" : "7142904069", "type" : "cell"}, {"number" : "7147717588", "type" : "home"}], "email" : "jpelotas.gmail.com", "reasonForLeaving" : "rent to expensive" },
     ],
     "employments" : [
       {"company" : "Apple", "supervisor" : "pelopincho", "phones" : [ {"number" : "7142904069", "type" : "cell"}, {"number" : "7147717588", "type" : "home"}], "email" : "jpelopincho.gmail.com", "position" : "software engineer",  "length" : "12", "address" : "1101 IBM way LA CA 92833"},
