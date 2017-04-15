@@ -33,7 +33,7 @@ class BankAccounts extends Component {
               size = "small"
               type="button"
               title="Remove Bank"
-              onClick={() => fields.remove(index)}> Remove Bank </Button>
+              onClick={() => fields.remove(index)}>Remove</Button>
             Bank #{index + 1}
 
           <div className="fields">
@@ -67,10 +67,18 @@ class BankAccounts extends Component {
                   <option value="investment">investment</option>
               </Field>
             </div>
-            <div className="twelve field wide">
+            <div className="eight field wide">
               <label htmlFor="number">account number</label>
               <Field
                 name={`${bank}.number`}
+                type="text"
+                component={renderField}/>
+
+            </div>
+            <div className="four field wide">
+              <label htmlFor="amount">amount</label>
+              <Field
+                name={`${bank}.amount`}
                 type="text"
                 component={renderField}/>
 

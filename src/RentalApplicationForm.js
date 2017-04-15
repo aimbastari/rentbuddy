@@ -12,6 +12,7 @@ import EmploymentHistory from './EmploymentHistory';
 import EmergencyContacts from './EmergencyContacts';
 import References from './References';
 import BankAccounts from './BankAccounts';
+import Creditors from './Creditors';
 
 import Autos from './Autos';
 
@@ -125,6 +126,16 @@ class RentalApplicationForm extends Component{
           <Accordion.Content>
             <Segment>
               <BankAccounts />
+            </Segment>
+          </Accordion.Content>
+
+          <Accordion.Title>
+            <Icon name='dropdown' />
+            Creditors
+          </Accordion.Title>
+          <Accordion.Content>
+            <Segment>
+              <Creditors />
             </Segment>
           </Accordion.Content>
 

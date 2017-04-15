@@ -8,9 +8,7 @@ exports.data = [
     "otherId" : "",
     "birthDate" : "2012-04-23",
     "email" : "aimbastari@gmail.com",
-    "aliases": [
-      "alias1", "alias2"
-    ],
+    "aliases": "jose pelotas pelopincho",
     "phones": [
       {"number" : "714 771 7588", "type" : "home"},
       {"number" : "714 904 54359", "type" : "cell"},
@@ -37,17 +35,17 @@ exports.data = [
       {"description" : "dog", "size" : "medium"},
       {"description" : "elephant", "size" : "large"}
     ],
-    "liquidFurniture" : "none",
-    "memberArmedForces" : true,
+    "liquidFurniture" : true,
+    "needHandicapAccess" : true,
     "grossIncome" : 12345,
     "paymentInterval" : "year",
     "bankAccounts" : [
-      {"name" : "wells fargo", "address" : "1232 bank st", "type" : "savings", "number" : 79879789},
-      {"name" : "wells fargo", "address" : "1232 bank st", "type" : "checking", "number" : 79879789}
+      {"name" : "wells fargo", "address" : "1232 bank st", "type" : "savings", "number" : 79879789, "amount" : 45666},
+      {"name" : "wells fargo", "address" : "1232 bank st", "type" : "checking", "number" : 79879789, "amount" : 45666}
     ],
     "creditors" : [
-      {"name" : "wells fargo", "address" : "1232 bank st", "number" : 2312312312, "monthlyPayment" : 300},
-      {"name" : "wells fargo", "address" : "1232 bank st", "number" : 2312312312, "monthlyPayment" : 2000}
+      {"name" : "toyota", "address" : "1232 bank st", "phones" : [ {"number" : "7142904069", "type" : "cell"}, {"number" : "7147717588", "type" : "home"}], "monthlyPayment" : 300},
+      {"name" : "sears", "address" : "1232 bank st", "phones" : [ {"number" : "7142904069", "type" : "cell"}, {"number" : "7147717588", "type" : "home"}], "monthlyPayment" : 2000}
     ],
     "emergencyContacts" : [
       {"name" : "Jorge Palacios", "address" : "2460 Meford Pl", "phones" : [ {"number" : "7142904069", "type" : "cell"}, {"number" : "7147717588", "type" : "home"}]},
@@ -81,9 +79,7 @@ exports.data = [
     "otherId" : "",
     "birthDate" : "2012-04-23",
     "email" : "tenant@gmail.com",
-    "aliases": [
-      "conhead", "moglee"
-    ],
+    "aliases": "conehead moglee",
     "phones": [
       {"number" : "714 771 7588", "type" : "home"},
       {"number" : "714 904 54359", "type" : "cell"},
@@ -110,17 +106,17 @@ exports.data = [
       {"description" : "giraffe", "size" : "large"}
     ],
 
-    "liquidFurniture" : "none",
-    "memberArmedForces" : true,
+    "liquidFurniture" : false,
+    "needHandicapAccess" : true,
     "grossIncome" : 12345,
     "paymentInterval" : "year",
     "bankAccounts" : [
-      {"name" : "wells fargo", "address" : "1232 bank st", "type" : "savings", "number" : 79879789},
-      {"name" : "wells fargo", "address" : "1232 bank st", "type" : "checking", "number" : 79879789}
+      {"name" : "wells fargo", "address" : "1232 bank st", "type" : "savings", "number" : 79879789, "amount" : 77777},
+      {"name" : "wells fargo", "address" : "1232 bank st", "type" : "checking", "number" : 79879789, "amount" : 88}
     ],
     "creditors" : [
-      {"name" : "wells fargo", "address" : "1232 bank st", "number" : 2312312312, "monthlyPayment" : 300},
-      {"name" : "wells fargo", "address" : "1232 bank st", "number" : 2312312312, "monthlyPayment" : 2000}
+      {"name" : "home depot", "address" : "1232 bank st", "phones" : [ {"number" : "7142904069", "type" : "cell"}, {"number" : "7147717588", "type" : "home"}], "monthlyPayment" : 300},
+      {"name" : "costco", "address" : "1232 bank st", "phones" : [ {"number" : "7142904069", "type" : "cell"}, {"number" : "7147717588", "type" : "home"}], "monthlyPayment" : 2000}
     ],
     "emergencyContacts" : [
       {"name" : "Jorge Palacios", "address" : "2460 Meford Pl", "phones" : [ {"number" : "7142904069", "type" : "cell"}, {"number" : "7147717588", "type" : "home"}]},
