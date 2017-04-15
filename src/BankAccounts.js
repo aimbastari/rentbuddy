@@ -26,33 +26,37 @@ class BankAccounts extends Component {
           {touched && error && <span>{error}</span>}
         </li>
         {fields.map((bank, index) =>
+          <Segment>
           <li key={index}>
+            <Button
+              color = "red"
+              size = "small"
+              type="button"
+              title="Remove Bank"
+              onClick={() => fields.remove(index)}> Remove Bank </Button>
+            Bank #{index + 1}
+
           <div className="fields">
             <div className="six field wide">
+              <label htmlFor="name">name</label>
               <Field
                 name={`${bank}.name`}
                 type="text"
                 component={renderField}/>
             </div>
             <div className="ten field wide">
+              <label htmlFor="address">address</label>
               <Field
                 name={`${bank}.address`}
                 type="text"
                 component={renderField}/>
 
             </div>
-            <div className="two field wide">
-              <Button
-                  color="red"
-                  size="tiny"
-                  type="button"
-                  title="Remove"
-                  onClick={() => fields.remove(index)}>remove</Button>
-            </div>
 
           </div>
           <div className="fields">
             <div className="four field wide">
+              <label htmlFor="type">type</label>
               <Field
                 name={`${bank}.type`}
                 type="text"
@@ -64,18 +68,16 @@ class BankAccounts extends Component {
               </Field>
             </div>
             <div className="twelve field wide">
+              <label htmlFor="number">account number</label>
               <Field
                 name={`${bank}.number`}
                 type="text"
                 component={renderField}/>
 
             </div>
-
           </div>
-
-
-
           </li>
+          </Segment>
 
         )}
       </ul>
