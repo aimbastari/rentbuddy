@@ -8,10 +8,6 @@ import RentalApplicationForm from './RentalApplicationForm';
 
 class RentalApplication extends Component{
 
-  componentWillMount = () => {
-    this.props.getApplication();
-  }
-
   handleSubmit = (values) => {
     this.props.saveApplication(values);
   }

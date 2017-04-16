@@ -17,7 +17,7 @@ class OccupantsInfo extends Component {
         </li>
         <Segment>
         {fields.map((occupant, index) =>
-          <Segment>
+          <Segment key={index}>
           <li key={index}>
             <Button
               type="button"

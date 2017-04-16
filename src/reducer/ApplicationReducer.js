@@ -1,4 +1,4 @@
-import {GET_APPLICATION, SAVE_APPLICATION} from '../actions/Types';
+import {GET_APPLICATION, SAVE_APPLICATION, UNAUTH_USER} from '../actions/Types';
 
 export default function(state = {}, action){
     switch(action.type){
@@ -6,7 +6,8 @@ export default function(state = {}, action){
             return { ...state, data : action.payload};
         case SAVE_APPLICATION:
             return { ...state, data : action.payload};
-            
+        case UNAUTH_USER:
+            return { ...state, data : {}};
         default:
             return state;
     }

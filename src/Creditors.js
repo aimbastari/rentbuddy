@@ -26,7 +26,7 @@ class Creditors extends Component {
           {touched && error && <span>{error}</span>}
         </li>
         {fields.map((creditor, index) =>
-          <Segment>
+          <Segment key={index}>
           <li key={index}>
             <Button
               color = "red"
@@ -77,7 +77,7 @@ class Creditors extends Component {
           <Button size="tiny" color="orange" onClick={() => fields.push()}>Add Phone</Button>
         </li>
         {fields.map((phone, index) =>
-          <Segment>
+          <Segment key={index}>
             <div className="fields">
                 <div className="eight wide field">
                   <Field

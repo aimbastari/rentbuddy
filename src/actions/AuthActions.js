@@ -64,6 +64,21 @@ export function signupUser({email, password}){
 }
 
 
+export function signoutUser2(){
+  return function(dispatch){
+      localStorage.removeItem('token');
+          //Update state to indicate user is authenticated
+        dispatch({type: UNAUTH_USER});
+
+        //redirect to dashboard
+        dispatch(push('/home'))
+
+
+  }
+}
+
+
+
 export function signoutUser(){
     localStorage.removeItem('token');
 

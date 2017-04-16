@@ -26,7 +26,7 @@ class BankAccounts extends Component {
           {touched && error && <span>{error}</span>}
         </li>
         {fields.map((bank, index) =>
-          <Segment>
+          <Segment key={index}>
           <li key={index}>
             <Button
               color = "red"

@@ -22,7 +22,7 @@ class EmploymentHistory extends Component {
         </li>
         <Segment>
         {fields.map((employment, index) =>
-          <Segment>
+          <Segment key={index}>
           <li key={index}>
             <Button
               type="button"
@@ -88,7 +88,7 @@ class EmploymentHistory extends Component {
           <Button size="tiny" color="orange" onClick={() => fields.push()}>Add Phone</Button>
         </li>
         {fields.map((phone, index) =>
-          <Segment>
+          <Segment key={index}>
             <div className="fields">
                 <div className="eight wide field">
                   <Field

@@ -8,9 +8,23 @@ import {
   end // The action value if a "long" running task ended
 } from 'react-redux-spinner';
 
+import Notifications from 'react-notification-system-redux';
+
 
 const API_URL = 'http://localhost:3090';
 
+
+const notificationOpts = {
+  // uid: 'once-please', // you can specify your own uid if required
+  title: 'Hey, it\'s good to see you!',
+  message: 'Now you can see how easy it is to use notifications in React!',
+  position: 'tr',
+  autoDismiss: 0,
+  action: {
+    label: 'Click me!!',
+    callback: () => alert('clicked!')
+  }
+};
 
 export function saveApplication(application){
     return function(dispatch){
@@ -35,9 +49,12 @@ export function saveApplication(application){
                 // Any additional key/values may be included here
               });
 
-                //If request is good...
-                //Update state
-//                dispatch({type: SAVE_APPLICATION, payload: application});
+              //Display success Message to user
+{/*
+              dispatch(
+                Notifications.success(notificationOpts)
+              );
+*/}
 
             })
             .catch((err) => {
@@ -47,6 +64,8 @@ export function saveApplication(application){
                 [ pendingTask ]: end // Make sure you embrace `pendingTask` in brackets [] to evaluate it
                 // Any additional key/values may be included here
               });
+
+
                 //If request is bad...
 //                dispatch(authError('Error saving application'));
 

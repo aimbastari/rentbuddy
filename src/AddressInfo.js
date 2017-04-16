@@ -26,7 +26,7 @@ class AddressInfo extends Component {
         </li>
         <Segment>
         {fields.map((address, index) =>
-          <Segment>
+          <Segment key={index}>
           <li key={index}>
             <Button
               size="small"
@@ -115,7 +115,7 @@ class AddressInfo extends Component {
           <Button size="tiny" color="orange" onClick={() => fields.push()}>Add Phone</Button>
         </li>
         {fields.map((phone, index) =>
-          <Segment>
+          <Segment key={index}>
             <div className="fields">
                 <div className="eight wide field">
                   <Field
@@ -154,7 +154,7 @@ class AddressInfo extends Component {
       <div>
         <FieldArray name="addresses" component={renderAddress} />
       </div>
-      
+
     );
   }
 }
