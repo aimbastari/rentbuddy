@@ -19,6 +19,8 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 
 import { Container } from 'semantic-ui-react';
 
+import { Spinner} from 'react-redux-spinner';
+
 
 class App extends Component {
   render() {
@@ -26,6 +28,7 @@ class App extends Component {
       <Container fluid>
 
         <div>
+          <Spinner />
           <Header />
           <Switch>
             <Route exact path='/'   component={Home} />

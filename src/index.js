@@ -19,6 +19,15 @@ import {AUTH_USER} from './actions/Types';
 import 'semantic-ui-css/semantic.min.css';
 import './index.css';
 
+import {
+  Spinner, // The React component
+  pendingTasksReducer, // The redux reducer
+  pendingTask, // The action key for modifying loading state
+  begin, // The action value if a "long" running task begun
+  end // The action value if a "long" running task ended
+} from 'react-redux-spinner';
+
+
 const logger = createLogger();
 
 const history = createBrowserHistory();
