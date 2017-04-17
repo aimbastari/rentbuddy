@@ -14,6 +14,8 @@ import SignUp from './components/auth/SignUp';
 import Dashboard from './Dashboard';
 import RentalApplication from './RentalApplication';
 import Agreement from './Agreement';
+import Maintenance from './Maintenance';
+
 
 import { Switch, Route, Redirect } from 'react-router-dom';
 
@@ -48,6 +50,11 @@ class App extends Component {
 
             <Route path='/agreement'  render={()=>(
                 localStorage.getItem('token') ? <Agreement /> :
+                  <Redirect to='/signin' /> )}
+            />
+
+            <Route path='/maintenance'  render={()=>(
+                localStorage.getItem('token') ? <Maintenance /> :
                   <Redirect to='/signin' /> )}
             />
 
