@@ -1,20 +1,31 @@
 import React, { Component } from 'react';
-import { Segment, Label } from 'semantic-ui-react';
+import './Agreement.css';
 
-const Agreement = () => (
-  <Segment>
-    <Label >
-      Lease Agreement
-    </Label>
-    <p>
-      Show current lease
-    </p>
-    <p>
-      Implement wizard style agreement
-    </p>
+import * as actions from './../actions/AgreementActions';
 
-  </Segment>
-);
+import { connect } from 'react-redux';
+import AgreementForm from './AgreementForm';
+
+class Agreement extends Component{
+
+  handleSubmit = (values) => {
+    this.props.saveAgreement(values);
+  }
 
 
-export default Agreement;
+  render(){
+    return (
+      <div className='Agreement-header' >
+        Rent or Lease Agreement
+        {/*
+          <AgreementForm onSubmit={this.handleSubmit} />
+        */}
+
+          <AgreementForm onSubmit={this.handleSubmit} />
+      </div>
+    )
+
+  }
+}
+
+export default connect(null, actions)(Agreement);

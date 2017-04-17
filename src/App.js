@@ -13,7 +13,7 @@ import SignUp from './components/auth/SignUp';
 
 import Dashboard from './Dashboard';
 import RentalApplication from './RentalApplication';
-import Agreement from './Agreement';
+import Agreement from './agreement/Agreement';
 import Maintenance from './Maintenance';
 
 

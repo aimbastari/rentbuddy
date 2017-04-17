@@ -13,8 +13,6 @@ const BasicLeaseTerms = ({}) => {
   );
 }
 
-BasicLeaseTerms.propTypes = {
-  : React.PropTypes.
-};
+
 
 export default BasicLeaseTerms;
