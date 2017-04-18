@@ -6,7 +6,10 @@ import { Accordion, Icon, Segment, Button } from 'semantic-ui-react';
 
 import Residents from './Residents'
 import BasicLeaseTerms from './BasicLeaseTerms'
-import PosessionOfPremises from './PosessionOfPremises'
+import PossessionOfPremises from './PossessionOfPremises'
+import Rent from './Rent'
+import LateCharge from './LateCharge'
+import SecurityDeposit from './SecurityDeposit'
 
 
 
@@ -47,13 +50,46 @@ class AgreementForm extends Component{
 
           <Accordion.Title>
             <Icon name='dropdown' />
-            Possesion of Premises
+            Possession of Premises
           </Accordion.Title>
           <Accordion.Content>
             <Segment>
-              <PosessionOfPremises />
+              <PossessionOfPremises />
             </Segment>
           </Accordion.Content>
+
+          <Accordion.Title>
+            <Icon name='dropdown' />
+            Rent
+          </Accordion.Title>
+          <Accordion.Content>
+            <Segment>
+              <Rent />
+            </Segment>
+          </Accordion.Content>
+
+          <Accordion.Title>
+            <Icon name='dropdown' />
+            LateCharge/DishonoredCheck
+          </Accordion.Title>
+          <Accordion.Content>
+            <Segment>
+              <LateCharge />
+            </Segment>
+          </Accordion.Content>
+
+          <Accordion.Title>
+            <Icon name='dropdown' />
+            SecurityDeposit
+          </Accordion.Title>
+          <Accordion.Content>
+            <Segment>
+              <SecurityDeposit />
+            </Segment>
+          </Accordion.Content>
+
+
+
 
 
         </Accordion>

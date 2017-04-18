@@ -16,11 +16,7 @@ class Agreement extends Component{
   render(){
     return (
       <div className='Agreement-header' >
-        Rent or Lease Agreement
-        {/*
-          <AgreementForm onSubmit={this.handleSubmit} />
-        */}
-
+          Rent or Lease Agreement
           <AgreementForm onSubmit={this.handleSubmit} />
       </div>
     )

@@ -10,10 +10,18 @@ const agreementSchema = new Schema({
   fixedTerm : Boolean,
   fixedTermBeginDate : { type : Date, default : Date.now},
   basicLeaseTerms : {
-      "number" : String,
-      "expiration" : { type : Date, default : Date.now},
-      "state" : String
-  },  ackPosessionOfPremises : Boolean,
+      "aptNumber" : String,
+      "address" : String,
+      "monthlyRent" : Number,
+      "securityDeposit" : Number,
+      "remoteDeposit" : Number,
+      "GarageOrStorage" : Number,
+      "lateRentCharge" : Number,
+      "dishonoredCheck" : Number,
+      "paidForUtilities" : {type: Array, "default" : []},
+      "parkingAssignments" : {type: Array, "default" : []}
+  },
+  ackPossessionOfPremises : Boolean,
   ackRent : Boolean,
   payableTo : String,
   ackLateChargeBadCheck : Boolean,
@@ -59,7 +67,7 @@ const agreementSchema = new Schema({
 
 
 //Create the model className
-const ModelClass = mongoose.model('application', applicationSchema);
+const ModelClass = mongoose.model('agreement', agreementSchema);
 
 //Export the model
 module.exports = ModelClass;

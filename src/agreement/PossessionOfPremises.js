@@ -4,7 +4,7 @@ import { Segment, Container, Label } from 'semantic-ui-react';
 import { Field } from 'redux-form';
 
 
-const PosessionOfPremises = ({}) => {
+const PossessionOfPremises = ({}) => {
   return (
     <Segment>
       <Label>
@@ -13,10 +13,12 @@ const PosessionOfPremises = ({}) => {
       by law, Landlord
       </Label>
       <div className="fields">
-          <div className="eight wide field">
-            <label htmlFor="ackPosessionOfPremises">Click to Acknowledge</label>
+          <div className="three wide field">
             <div>
-              <Field name="ackPosessionOfPremises" id="ackPosessionOfPremises" component="input" type="checkbox"/>
+              <Label htmlFor="ackPossessionOfPremises">Click to Acknowledge</Label>
+              <div>
+                <Field name="ackPossessionOfPremises" id="ackPossessionOfPremises" component="input" type="checkbox"/>
+              </div>
             </div>
           </div>
       </div>
@@ -27,4 +29,4 @@ const PosessionOfPremises = ({}) => {
 
 
 
-export default PosessionOfPremises;
+export default PossessionOfPremises;
