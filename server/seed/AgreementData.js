@@ -1,7 +1,7 @@
 exports.data = [
   {
-    "userId" : "123",
-    "landlordId" : "456",
+    "userId" : null,
+    "landlordId" : null,
     "occupants" : [
       {"firstName": "maria", "middleName": "juana", "lastName": "mandana", "adult": true},
       {"firstName": "maria", "middleName": "juana", "lastName": "mandana", "adult": false},
@@ -23,9 +23,9 @@ exports.data = [
         "paidForUtilities" : ["water", "electrical"],
         "parkingAssignments" : ["1", "2"]
     },
-    "ackPossessionOfPremises" : true,
+    "ackPossessionOfPremises" : false,
     "ackRent" : true,
-    "payableTo" : "Romenya Management team",
+    "payableTo" : "Romneya Management Team",
     "ackLateChargeBadCheck" : true,
     "ackSecurityDeposit" : true,
     "ackUtilities" : true,

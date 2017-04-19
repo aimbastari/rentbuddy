@@ -29,7 +29,9 @@ import { reduxForm } from 'redux-form';
 
 class RentalApplicationForm extends Component{
 
-
+  componentWillMount = () => {
+    this.props.getApplication();
+  }
 
 
   render(){
@@ -172,7 +174,9 @@ RentalApplicationForm = reduxForm({
 // You have to connect() to any reducers that you wish to connect to yourself
 RentalApplicationForm = connect(
   state => ({
-    initialValues: state.application.data // pull initial values from account reducer
+    enableReinitialize : true,
+    keepDirtyOnReinitialize : true,
+    initialValues: state.application.data // pull initial values from application reducer
   }),
    actions                // bind account loading action creator
 )(RentalApplicationForm)

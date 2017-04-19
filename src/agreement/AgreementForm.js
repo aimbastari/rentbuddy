@@ -4,7 +4,7 @@ import './Agreement.css';
 import { Accordion, Icon, Segment, Button } from 'semantic-ui-react';
 
 
-import Residents from './Residents'
+import Occupants from './Occupants'
 import BasicLeaseTerms from './BasicLeaseTerms'
 import PossessionOfPremises from './PossessionOfPremises'
 import Rent from './Rent'
@@ -21,6 +21,11 @@ import { reduxForm } from 'redux-form';
 
 class AgreementForm extends Component{
 
+  componentWillMount = () => {
+    this.props.getAgreement();
+  }
+
+
 
   render(){
     const { handleSubmit, pristine, reset, submitting } = this.props;
@@ -30,11 +35,11 @@ class AgreementForm extends Component{
 
           <Accordion.Title>
             <Icon name='dropdown' />
-            Residents
+            Occupants
           </Accordion.Title>
           <Accordion.Content>
             <Segment>
-              <Residents />
+              <Occupants />
             </Segment>
           </Accordion.Content>
 
@@ -90,8 +95,6 @@ class AgreementForm extends Component{
 
 
 
-
-
         </Accordion>
 
         <Segment basic textAlign="right">
@@ -114,7 +117,9 @@ AgreementForm = reduxForm({
 // You have to connect() to any reducers that you wish to connect to yourself
 AgreementForm = connect(
   state => ({
-    initialValues: {} // pull initial values from account reducer
+    enableReinitialize : true,
+    keepDirtyOnReinitialize : true,
+    initialValues: state.agreement.data // pull initial values from agreement reducer
   }),
    actions                // bind account loading action creator
 )(AgreementForm)

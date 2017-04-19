@@ -5,12 +5,6 @@ import * as actions from './actions/RentalApplicationActions';
 
 class Dashboard extends React.Component{
 
-  componentWillMount = () => {
-    this.props.getApplication();
-  }
-
-
-
   render(){
     return (
       <div>

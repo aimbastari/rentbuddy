@@ -8,11 +8,13 @@ const NODE_ENV = process.env.NODE_ENV || 'dev';
 const mongoose = require('mongoose');
 const User = require('../models/user');
 const Application = require('../models/Application');
-
+const Agreement = require('../models/Agreement');
 
 //Load data
 const userData = require('./UserData.js').data;
 const applicationData = require('./ApplicationData.js').data;
+const agreementData = require('./AgreementData.js').data;
+
 
 //DB setup
 const DB_URL=`mongodb://${DB_SERVER}:${DB_PORT}/rentbuddy`;
@@ -81,6 +83,61 @@ Application.remove({}, function(err){
       }
     });
 
+
+
+  });
+});
+
+
+//Seed data: first remove exisiting agreements, then connect tenants and landlords
+Agreement.remove({}, function(err){
+  if(err) return console.error(err);
+  console.log("Agreement removed");
+
+  Agreement.create(agreementData, function (err, doc){
+    if(err) return console.error(err);
+    console.log("Inserted Agreements");
+
+    //join user with application
+    //Populate UerId - ObjectId
+    User.findOne({email : "tenant@gmail.com"}, function(err, doc){
+      if(err) return console.error(err);
+
+      if(doc){
+        console.log("Found one user");
+
+        //Find any agreement
+        Agreement.findOneAndUpdate({},
+          { $set: {userId: doc._id}},{new : true}, function(err, doc){
+            if (err) {return next(err);}
+
+            if(!doc){
+              console.log("Cannot update agreement");
+            }else{
+              console.log("Updated agreement with tenant userId");
+            }
+        });
+      }
+    });
+
+    User.findOne({email : "aimbastari@gmail.com"}, function(err, doc){
+      if(err) return console.error(err);
+
+      if(doc){
+        console.log("Found one user");
+
+        Agreement.findOneAndUpdate({},
+          { $set: {landlordId: doc._id}},{new : true}, function(err, doc){
+            if (err) {return next(err);}
+
+            if(!doc){
+              console.log("Cannot update agreement");
+            }else{
+              console.log("Updated agreement with landlord userId");
+            }
+        });
+      }
+    });
 
 
   });

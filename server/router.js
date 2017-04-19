@@ -7,6 +7,8 @@ const requireSignin = passport.authenticate('local', {session : false});
 
 const Profile = require('./controllers/Profile');
 const Application = require('./controllers/Application');
+const Agreement = require('./controllers/Agreement');
+
 
 
 module.exports = function(app){
@@ -49,15 +51,13 @@ module.exports = function(app){
 
 
 
-  //Save single application
-  app.post('/application', requireAuth, Application.saveApplication);
+  //Save single agreement
+  app.post('/agreement', requireAuth, Agreement.saveAgreement);
 
-  app.post('/applications/:applicationId', requireAuth, Application.saveApplication);
 
-  app.post('/applications', requireAuth, Application.createApplication);
+  //A routes
+  //This route is protected and need a JWT token
+  app.get('/agreement', requireAuth, Agreement.getAgreementByUserId);
 
-  app.post('/applications/copy/:applicationId', requireAuth, Application.copyApplication);
-
-  app.delete('/applications/:applicationId', requireAuth, Application.deleteApplication);
 
 }

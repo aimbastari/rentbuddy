@@ -29,9 +29,9 @@ const Rent = ({}) => {
       <div className="fields">
           <div className="three wide field">
             <div>
-              <Label htmlFor="ackPossessionOfPremises">Click to Acknowledge</Label>
+              <Label htmlFor="ackRent">Click to Acknowledge</Label>
               <div>
-                <Field name="ackPossessionOfPremises" id="ackPossessionOfPremises" component="input" type="checkbox"/>
+                <Field name="ackRent" id="ackRent" component="input" type="checkbox"/>
               </div>
             </div>
           </div>
