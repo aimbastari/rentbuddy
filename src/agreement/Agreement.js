@@ -6,6 +6,8 @@ import * as actions from './../actions/AgreementActions';
 import { connect } from 'react-redux';
 import AgreementForm from './AgreementForm';
 
+import { Icon, Label } from 'semantic-ui-react';
+
 class Agreement extends Component{
 
   handleSubmit = (values) => {
@@ -16,7 +18,9 @@ class Agreement extends Component{
   render(){
     return (
       <div className='Agreement-header' >
-          Rent or Lease Agreement
+          <Label as='a' color="orange">
+            <Icon name='map outline'/>Rent or Lease Agreement
+          </Label>
           <AgreementForm onSubmit={this.handleSubmit} />
       </div>
     )
