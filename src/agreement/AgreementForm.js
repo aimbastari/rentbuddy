@@ -10,8 +10,9 @@ import PossessionOfPremises from './PossessionOfPremises'
 import Rent from './Rent'
 import LateCharge from './LateCharge'
 import SecurityDeposit from './SecurityDeposit'
-
-
+import Utilities from './Utilities'
+import Occupancy from './Occupancy'
+import JointLiability from './JointLiability'
 
 import * as actions from './../actions/AgreementActions';
 
@@ -93,7 +94,35 @@ class AgreementForm extends Component{
             </Segment>
           </Accordion.Content>
 
+          <Accordion.Title>
+            <Icon name='dropdown' />
+            Utilities
+          </Accordion.Title>
+          <Accordion.Content>
+            <Segment>
+              <Utilities />
+            </Segment>
+          </Accordion.Content>
 
+          <Accordion.Title>
+            <Icon name='dropdown' />
+            Occupancy
+          </Accordion.Title>
+          <Accordion.Content>
+            <Segment>
+              <Occupancy />
+            </Segment>
+          </Accordion.Content>
+
+          <Accordion.Title>
+            <Icon name='dropdown' />
+            Joint and Several Liability
+          </Accordion.Title>
+          <Accordion.Content>
+            <Segment>
+              <JointLiability />
+            </Segment>
+          </Accordion.Content>
 
         </Accordion>
 
