@@ -24,6 +24,9 @@ import { Container } from 'semantic-ui-react';
 import { Spinner} from 'react-redux-spinner';
 
 
+
+
+
 class App extends Component {
   render() {
     return (
@@ -66,5 +69,7 @@ class App extends Component {
     );
   }
 }
+
+
 
 export default App;

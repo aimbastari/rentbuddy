@@ -64,29 +64,16 @@ export function signupUser({email, password}){
 }
 
 
-export function signoutUser2(){
-  return function(dispatch){
-      localStorage.removeItem('token');
-          //Update state to indicate user is authenticated
+export function signoutUser(){
+    return function(dispatch){
+        localStorage.removeItem('token');
+
+        //Update state to indicate user is unauthenticated
         dispatch({type: UNAUTH_USER});
 
-        //redirect to dashboard
-        dispatch(push('/home'))
-
-
-  }
+    }
 }
 
-
-
-export function signoutUser(){
-    localStorage.removeItem('token');
-
-    return (
-      {type : UNAUTH_USER}
-    );
-
-}
 
 export function authError(error){
     return {

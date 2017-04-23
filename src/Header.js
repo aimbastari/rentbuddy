@@ -1,22 +1,67 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import { Menu, Dropdown, Button } from 'semantic-ui-react';
 
-const Header = () => {
-  return (
-    <ul>
-      <li><Link to="/">Home</Link></li>
-      <li><Link to="/about">About</Link></li>
-      <li><Link to="/signin">Sign In</Link></li>
-      <li><Link to="/signout">Sign Out</Link></li>
-      <li><Link to="/signup">Sign Up</Link></li>
-      <hr/>
-      <li><Link to="/dashboard">Dashboard</Link></li>
-      <li><Link to="/application">Application</Link></li>
-      <li><Link to="/agreement">Lease Agreement</Link></li>
-      <li><Link to="/maintenance">Maintenance</Link></li>
+import { connect } from 'react-redux';
 
-    </ul>
-  );
+class Header extends React.Component {
+  state = { activeItem: 'home' }
+
+  handleItemClick = (e, { name }) => this.setState({ activeItem: name })
+
+  render() {
+    const { activeItem } = this.state
+
+    const renderSign = () =>  {
+      if (this.props.authenticated){
+         return (
+          <Menu.Menu position='right'>
+            <Menu.Item as={Link} to="/signout">
+              <Button primary>Sign Out</Button>
+            </Menu.Item>          
+          </Menu.Menu>
+
+        )
+      }else{
+         return (
+          <Menu.Menu position='right'>
+            <Menu.Item as={Link} to="/signup">
+              <Button primary>Sign Up</Button>
+            </Menu.Item>
+            <Menu.Item as={Link} to="/signin">
+              <Button primary>Sign In</Button>
+            </Menu.Item>
+          </Menu.Menu>
+        )
+      }
+    }
+
+
+    return (
+      <Menu size='mini'>
+        <Menu.Item as={Link} to="/" name='home' active={activeItem === 'home'} onClick={this.handleItemClick} />
+        <Menu.Item name='dashboard'   as={Link} to="/dashboard" active={activeItem === 'dashboard'} onClick={this.handleItemClick} />
+        <Menu.Item name='application' as={Link} to="/application" active={activeItem === 'application'} onClick={this.handleItemClick} />
+        <Menu.Item name='agreement'   as={Link} to="/agreement" active={activeItem === 'agreement'} onClick={this.handleItemClick} />
+        <Menu.Item name='maintenance' as={Link} to="/maintenance" active={activeItem === 'manintenance'} onClick={this.handleItemClick} />
+
+        <Menu.Menu position='right'>
+ 
+          {renderSign()}
+        </Menu.Menu>
+      </Menu>
+    )
+  }
+
+
 }
 
-export default Header;
+
+const mapStateToProps = (state) => {
+  return {
+    authenticated: state.auth.authenticated
+  }
+}
+
+
+export default connect(mapStateToProps)(Header);
