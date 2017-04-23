@@ -17,7 +17,7 @@ class Header extends React.Component {
          return (
           <Menu.Menu position='right'>
             <Menu.Item as={Link} to="/signout">
-              <Button primary>Sign Out</Button>
+              <Button color='orange' compact>Sign Out</Button>
             </Menu.Item>          
           </Menu.Menu>
 
@@ -26,10 +26,11 @@ class Header extends React.Component {
          return (
           <Menu.Menu position='right'>
             <Menu.Item as={Link} to="/signup">
-              <Button primary>Sign Up</Button>
+              <Button color='orange' compact>Sign Up</Button>
+              <Button.Or />
             </Menu.Item>
             <Menu.Item as={Link} to="/signin">
-              <Button primary>Sign In</Button>
+              <Button color='orange' compact>Sign In</Button>
             </Menu.Item>
           </Menu.Menu>
         )

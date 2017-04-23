@@ -1,6 +1,7 @@
 import axios from 'axios';
 import {GET_APPLICATION, SAVE_APPLICATION } from './Types'
 import {push} from 'connected-react-router';
+const { notifSend } = notifActions;
 
 import {
   pendingTask, // The action key for modifying loading state
@@ -8,23 +9,11 @@ import {
   end // The action value if a "long" running task ended
 } from 'react-redux-spinner';
 
-import Notifications from 'react-notification-system-redux';
+import { reducer as notifReducer, actions as notifActions, Notifs } from 'redux-notifications';
 
 
 const API_URL = 'http://localhost:3090';
 
-
-const notificationOpts = {
-  // uid: 'once-please', // you can specify your own uid if required
-  title: 'Hey, it\'s good to see you!',
-  message: 'Now you can see how easy it is to use notifications in React!',
-  position: 'tr',
-  autoDismiss: 0,
-  action: {
-    label: 'Click me!!',
-    callback: () => alert('clicked!')
-  }
-};
 
 export function saveApplication(application){
     return function(dispatch){
@@ -56,6 +45,13 @@ export function saveApplication(application){
               );
 */}
 
+              dispatch(notifSend({
+                    message: 'Successfully Saved Application',
+                    kind: 'info',
+                    dismissAfter: 2000
+                  }));
+
+
             })
             .catch((err) => {
               //stop Spinner
@@ -65,7 +61,11 @@ export function saveApplication(application){
                 // Any additional key/values may be included here
               });
 
-
+              dispatch(notifSend({
+                    message: 'Error Saving Application',
+                    kind: 'danger',
+                    dismissAfter: 2000
+                  }));
                 //If request is bad...
 //                dispatch(authError('Error saving application'));
 

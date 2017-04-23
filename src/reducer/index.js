@@ -3,8 +3,7 @@ import { combineReducers } from 'redux';
 import { reducer as formReducer } from 'redux-form';
 import { pendingTasksReducer } from 'react-redux-spinner'; // The redux reducer
 
-import {reducer as notifications} from 'react-notification-system-redux';
-
+import { reducer as notifReducer } from 'redux-notifications';
 
 
 import user from './UserReducer.js'
@@ -21,7 +20,7 @@ const reducers = {
   agreement,
   form: formReducer, // Mount redux-from reducer as form
   pendingTasks : pendingTasksReducer,
-  notifications
+  notifs: notifReducer
 }
 
 const reducer = combineReducers(reducers);

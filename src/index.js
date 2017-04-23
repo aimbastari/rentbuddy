@@ -27,6 +27,8 @@ import {
   end // The action value if a "long" running task ended
 } from 'react-redux-spinner';
 
+import { Notifs } from 'redux-notifications';
+import { styles } from 'redux-notifications';
 
 const logger = createLogger();
 
@@ -54,9 +56,12 @@ if(token){
 
 ReactDOM.render(
   <Provider store={store}>
-    <ConnectedRouter history={history}>
-      <App />
-    </ConnectedRouter>
+    <div>
+      <ConnectedRouter history={history}>
+        <App />
+      </ConnectedRouter>
+      <Notifs />
+    </div>
   </Provider>,
   document.getElementById('root')
 );
