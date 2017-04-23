@@ -49,6 +49,7 @@ module.exports = function(app){
   //Get single application using userId
   app.get('/applications/:userId', requireAuth, Application.getApplicationByUserId);
 
+  app.post('/application', requireAuth, Application.saveApplication);
 
 
   //Save single agreement
