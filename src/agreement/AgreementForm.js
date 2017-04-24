@@ -14,6 +14,8 @@ import Utilities from './Utilities'
 import Occupancy from './Occupancy'
 import JointLiability from './JointLiability'
 import AcceptanceOfPremises from './AcceptanceOfPremises'
+import KeyAndRemoteControls from './KeyAndRemoteControls'
+
 
 import ExecutionAndSignatures from './ExecutionAndSignatures'
 
@@ -138,6 +140,18 @@ class AgreementForm extends Component{
               <AcceptanceOfPremises />
             </Segment>
           </Accordion.Content>
+
+
+          <Accordion.Title>
+            <Icon name='dropdown' />
+            Keys and Remote Controls
+          </Accordion.Title>
+          <Accordion.Content>
+            <Segment>
+              <KeyAndRemoteControls />
+            </Segment>
+          </Accordion.Content>
+
 
 
           <Accordion.Title>
