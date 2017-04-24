@@ -15,6 +15,9 @@ import Occupancy from './Occupancy'
 import JointLiability from './JointLiability'
 import AcceptanceOfPremises from './AcceptanceOfPremises'
 import KeyAndRemoteControls from './KeyAndRemoteControls'
+import UseOfPremises from './UseOfPremises'
+import WaterFilledFurniture from './WaterFilledFurniture'
+import Damage from './Damage'
 
 
 import ExecutionAndSignatures from './ExecutionAndSignatures'
@@ -152,7 +155,35 @@ class AgreementForm extends Component{
             </Segment>
           </Accordion.Content>
 
+          <Accordion.Title>
+            <Icon name='dropdown' />
+            Use of Premises
+          </Accordion.Title>
+          <Accordion.Content>
+            <Segment>
+              <UseOfPremises />
+            </Segment>
+          </Accordion.Content>
 
+          <Accordion.Title>
+            <Icon name='dropdown' />
+            Water filled Furniture
+          </Accordion.Title>
+          <Accordion.Content>
+            <Segment>
+              <WaterFilledFurniture />
+            </Segment>
+          </Accordion.Content>
+
+          <Accordion.Title>
+            <Icon name='dropdown' />
+            Damage
+          </Accordion.Title>
+          <Accordion.Content>
+            <Segment>
+              <Damage />
+            </Segment>
+          </Accordion.Content>
 
           <Accordion.Title>
             <Icon name='dropdown' />
