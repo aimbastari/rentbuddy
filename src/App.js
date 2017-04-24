@@ -31,40 +31,36 @@ class App extends Component {
   render() {
     return (
       <Container fluid>
+        <Spinner />
+        <Header />
+        <Switch>
+          <Route exact path='/'   component={Home} />
+          <Route path='/about'    component={About} />
+          <Route path='/signin'   component={SignIn} />
+          <Route path='/signout'  component={SignOut} />
+          <Route path='/signup'   component={SignUp} />
 
-        <div>
-          <Spinner />
-          <Header />
-          <Switch>
-            <Route exact path='/'   component={Home} />
-            <Route path='/about'    component={About} />
-            <Route path='/signin'   component={SignIn} />
-            <Route path='/signout'  component={SignOut} />
-            <Route path='/signup'   component={SignUp} />
+          <Route path='/dashboard'    render={()=>(
+              localStorage.getItem('token') ? <Dashboard /> :
+                <Redirect to='/signin' /> )}
+          />
+          <Route path='/application'  render={()=>(
+              localStorage.getItem('token') ? <RentalApplication /> :
+                <Redirect to='/signin' /> )}
+          />
 
-            <Route path='/dashboard'    render={()=>(
-                localStorage.getItem('token') ? <Dashboard /> :
-                  <Redirect to='/signin' /> )}
-            />
-            <Route path='/application'  render={()=>(
-                localStorage.getItem('token') ? <RentalApplication /> :
-                  <Redirect to='/signin' /> )}
-            />
+          <Route path='/agreement'  render={()=>(
+              localStorage.getItem('token') ? <Agreement /> :
+                <Redirect to='/signin' /> )}
+          />
 
-            <Route path='/agreement'  render={()=>(
-                localStorage.getItem('token') ? <Agreement /> :
-                  <Redirect to='/signin' /> )}
-            />
+          <Route path='/maintenance'  render={()=>(
+              localStorage.getItem('token') ? <Maintenance /> :
+                <Redirect to='/signin' /> )}
+          />
 
-            <Route path='/maintenance'  render={()=>(
-                localStorage.getItem('token') ? <Maintenance /> :
-                  <Redirect to='/signin' /> )}
-            />
-
-            <Route component={NoMatch}/>
-          </Switch>
-        </div>
-
+          <Route component={NoMatch}/>
+        </Switch>
       </Container>
     );
   }

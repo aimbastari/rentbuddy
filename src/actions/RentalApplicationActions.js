@@ -1,7 +1,6 @@
 import axios from 'axios';
 import {GET_APPLICATION, SAVE_APPLICATION } from './Types'
 import {push} from 'connected-react-router';
-const { notifSend } = notifActions;
 
 import {
   pendingTask, // The action key for modifying loading state
@@ -11,7 +10,7 @@ import {
 
 import { reducer as notifReducer, actions as notifActions, Notifs } from 'redux-notifications';
 
-
+const { notifSend } = notifActions;
 const API_URL = 'http://localhost:3090';
 
 

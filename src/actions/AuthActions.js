@@ -3,11 +3,29 @@ import axios from 'axios';
 import {AUTH_USER, UNAUTH_USER, AUTH_ERROR} from './Types'
 import {push} from 'connected-react-router';
 
+import {
+  pendingTask, // The action key for modifying loading state
+  begin, // The action value if a "long" running task begun
+  end // The action value if a "long" running task ended
+} from 'react-redux-spinner';
+
+import { reducer as notifReducer, actions as notifActions, Notifs } from 'redux-notifications';
+
+const { notifSend } = notifActions;
 const API_URL = 'http://localhost:3090';
 
 
 export function signinUser({email, password}){
     return function(dispatch){
+
+        //start Spinner
+        dispatch({
+          type: AUTH_USER,  
+          [ pendingTask ]: begin // Make sure you embrace `pendingTask` in brackets [] to evaluate it
+          // Any additional key/values may be included here
+        });
+
+
         //Submit email/password to the server
         axios.post(`${API_URL}/signin`, {email, password})
             .then(response => {
@@ -16,18 +34,33 @@ export function signinUser({email, password}){
                 localStorage.setItem('firstName', response.data.firstName);
                 localStorage.setItem('roles', response.data.roles);
 
-                //If request is good...
                 //Update state to indicate user is authenticated
-                dispatch({type: AUTH_USER});
+                dispatch({
+                    type: AUTH_USER,
+                    [ pendingTask ]: end // Make sure you embrace `pendingTask` in brackets [] to evaluate it
+                });
+
+                //redirect to
                 dispatch(push('/dashboard'))
 
             })
             .catch((err) => {
-                //If request is bad...
-                dispatch(authError('email / password do not match'));
+
+                dispatch({
+                    type: AUTH_ERROR,
+                    [ pendingTask ]: end, // Make sure you embrace `pendingTask` in brackets [] to evaluate it
+                    payload : 'email / password do not match'
+                });
+                
+
+              dispatch(notifSend({
+                    message: 'Login Failed. Try again',
+                    kind: 'danger',
+                    dismissAfter: 2000
+                  }));
 
                 // <Redirect push to='/signin'/>
-                dispatch(push('/signin`'))
+                dispatch(push('/signin'))
 
             });
 
