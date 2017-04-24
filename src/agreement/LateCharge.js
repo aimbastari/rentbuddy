@@ -7,31 +7,22 @@ import { Field } from 'redux-form';
 const LateCharge = ({}) => {
   return (
     <Segment>
-      <Label>
-        Resident agrees to pay to Landlord, at the office of the apartment manager, monthly rental at the
-        rate set forth in paragraph
-          Monthly rent
-          Garage/Storage
-          on or before the FIRST (1st) day of each month.
-          Rent is payable only by personal check, cashiers check or money order payable to:
-          Romneya Apartment Management.
-          No cash will be accepted. In the event Landlord is required to serve Resident with a 3-Day Notice
-          to Pay Rent or Quit on two (2) or more occasions, or Resident has tendered an NSF check on two (2) or monthlyRent
-          occasions, Landlord may thereafter require Resident that all future rental payments be made in the form
-          of a cashier's check or money order only.
-          The rent for a partial month's period shall be prorated on the basis of a 30-day month and shall be paid on
-          or before the next rental due date.
-          Landlord may apply any payment received from Resident, including a payment recevied after the service of a 3-Day Notice
-          to Pay Rent or Quit, in any manner in which the Landlord deems appropriate, including applying such payment first
-          to any unpaid late charges or other fees or charges then due and owing under this agreement, and second, applying the appropriate
-          remainder of the payment to the rent then due.
-      </Label>
       <div className="fields">
-          <div className="three wide field">
+          <div className="sixteen wide field">
+            <label>
+              If Residents fail to pay the rent in full by the end of the third day after it is due or when a deficient check has 
+              been tendered for rent payment, a late fee in the amount of 6% of the monthly rent as set forth in the Basic Lease Terms of 
+              this Agreement shall be added as additional rent. Resident agrees that the late charge represents reasonable compensation
+              to Landlord for damages Landlord will suffer in the event rent is not paid when due.  This provision does not extend the
+              rental due date.  In addition to the late charge stated herein, Resident shall pay Landlord as additional rent a processing
+              fee in the amount set forth in the Basic Lease Terms of this Agreement for any check which is dishonored for any 
+              reason by Resident's bank. Any dishonored check must be replaced by a cashier's check or money order. 
+            </label>
+
             <div>
-              <Label htmlFor="ackPossessionOfPremises">Click to Acknowledge</Label>
+              <Label htmlFor="ackLateChargeBadCheck">Click to Acknowledge</Label>
               <div>
-                <Field name="ackPossessionOfPremises" id="ackPossessionOfPremises" component="input" type="checkbox"/>
+                <Field name="ackLateChargeBadCheck" id="ackLateChargeBadCheck" component="input" type="checkbox"/>
               </div>
             </div>
           </div>

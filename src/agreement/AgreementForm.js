@@ -13,6 +13,11 @@ import SecurityDeposit from './SecurityDeposit'
 import Utilities from './Utilities'
 import Occupancy from './Occupancy'
 import JointLiability from './JointLiability'
+import AcceptanceOfPremises from './AcceptanceOfPremises'
+
+import ExecutionAndSignatures from './ExecutionAndSignatures'
+
+
 
 import * as actions from './../actions/AgreementActions';
 
@@ -123,6 +128,28 @@ class AgreementForm extends Component{
               <JointLiability />
             </Segment>
           </Accordion.Content>
+
+          <Accordion.Title>
+            <Icon name='dropdown' />
+            Acceptance Of Premises
+          </Accordion.Title>
+          <Accordion.Content>
+            <Segment>
+              <AcceptanceOfPremises />
+            </Segment>
+          </Accordion.Content>
+
+
+          <Accordion.Title>
+            <Icon name='dropdown' />
+            Execution and Signatures
+          </Accordion.Title>
+          <Accordion.Content>
+            <Segment>
+              <ExecutionAndSignatures />
+            </Segment>
+          </Accordion.Content>
+
 
         </Accordion>
 
