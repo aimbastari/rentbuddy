@@ -30,7 +30,7 @@ import { Spinner} from 'react-redux-spinner';
 class App extends Component {
   render() {
     return (
-      <Container fluid>
+      <Container>
         <Spinner />
         <Header />
         <Switch>

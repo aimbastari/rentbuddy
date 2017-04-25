@@ -1,6 +1,8 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import { Menu, Dropdown, Button } from 'semantic-ui-react';
+import { Menu, Dropdown, Button, Image } from 'semantic-ui-react';
+
+import logo from './assets/images/rentbuddy-logo.png';
 
 import { connect } from 'react-redux';
 
@@ -40,7 +42,7 @@ class Header extends React.Component {
 
     return (
       <Menu size='mini'>
-        <Menu.Item as={Link} to="/" name='home' active={activeItem === 'home'} onClick={this.handleItemClick} />
+        <Menu.Item as={Link} to="/" name='home' active={activeItem === 'home'} onClick={this.handleItemClick} fitted><Image src={logo} /> </Menu.Item>
         <Menu.Item name='dashboard'   as={Link} to="/dashboard" active={activeItem === 'dashboard'} onClick={this.handleItemClick} />
         <Menu.Item name='application' as={Link} to="/application" active={activeItem === 'application'} onClick={this.handleItemClick} />
         <Menu.Item name='agreement'   as={Link} to="/agreement" active={activeItem === 'agreement'} onClick={this.handleItemClick} />
