@@ -17,9 +17,9 @@ import Agreement from './agreement/Agreement';
 import Maintenance from './Maintenance';
 
 
-import { Switch, Route, Redirect } from 'react-router-dom';
+import { Switch, Route, Redirect, Link } from 'react-router-dom';
 
-import { Container } from 'semantic-ui-react';
+import { Container, Grid, GridColumn, GridRow, Menu } from 'semantic-ui-react';
 
 import { Spinner} from 'react-redux-spinner';
 
@@ -28,39 +28,68 @@ import { Spinner} from 'react-redux-spinner';
 
 
 class App extends Component {
+  state = { activeItem: 'home' }
+
+  handleItemClick = (e, { name }) => this.setState({ activeItem: name })
+
   render() {
+
+    const { activeItem } = this.state
+
     return (
       <Container>
         <Spinner />
         <Header />
-        <Switch>
-          <Route exact path='/'   component={Home} />
-          <Route path='/about'    component={About} />
-          <Route path='/signin'   component={SignIn} />
-          <Route path='/signout'  component={SignOut} />
-          <Route path='/signup'   component={SignUp} />
+        <Grid>
+          <GridRow>
+            <GridColumn width={3}>
+              <Menu size='mini' vertical fluid>
+                <Menu.Item name='dashboard'   as={Link} to="/dashboard" active={activeItem === 'dashboard'} onClick={this.handleItemClick} />
+                <Menu.Item name='application' as={Link} to="/application" active={activeItem === 'application'} onClick={this.handleItemClick} />
+                <Menu.Item name='agreement'   as={Link} to="/agreement" active={activeItem === 'agreement'} onClick={this.handleItemClick} />
+                <Menu.Item name='maintenance' as={Link} to="/maintenance" active={activeItem === 'manintenance'} onClick={this.handleItemClick} />
 
-          <Route path='/dashboard'    render={()=>(
-              localStorage.getItem('token') ? <Dashboard /> :
-                <Redirect to='/signin' /> )}
-          />
-          <Route path='/application'  render={()=>(
-              localStorage.getItem('token') ? <RentalApplication /> :
-                <Redirect to='/signin' /> )}
-          />
+              </Menu>
 
-          <Route path='/agreement'  render={()=>(
-              localStorage.getItem('token') ? <Agreement /> :
-                <Redirect to='/signin' /> )}
-          />
+            </GridColumn>
+            <GridColumn width={13}>
+              <Switch>
+                <Route exact path='/'   component={Home} />
+                <Route path='/about'    component={About} />
+                <Route path='/signin'   component={SignIn} />
+                <Route path='/signout'  component={SignOut} />
+                <Route path='/signup'   component={SignUp} />
 
-          <Route path='/maintenance'  render={()=>(
-              localStorage.getItem('token') ? <Maintenance /> :
-                <Redirect to='/signin' /> )}
-          />
+                <Route path='/dashboard'    render={()=>(
+                    localStorage.getItem('token') ? <Dashboard /> :
+                      <Redirect to='/signin' /> )}
+                />
+                <Route path='/application'  render={()=>(
+                    localStorage.getItem('token') ? <RentalApplication /> :
+                      <Redirect to='/signin' /> )}
+                />
 
-          <Route component={NoMatch}/>
-        </Switch>
+                <Route path='/agreement'  render={()=>(
+                    localStorage.getItem('token') ? <Agreement /> :
+                      <Redirect to='/signin' /> )}
+                />
+
+                <Route path='/maintenance'  render={()=>(
+                    localStorage.getItem('token') ? <Maintenance /> :
+                      <Redirect to='/signin' /> )}
+                />
+
+                <Route component={NoMatch}/>
+              </Switch>
+
+            </GridColumn>
+          </GridRow>
+          <GridRow>
+            <GridColumn>
+              footer
+            </GridColumn>
+          </GridRow>
+        </Grid>
       </Container>
     );
   }
