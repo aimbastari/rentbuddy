@@ -18,6 +18,12 @@ import KeyAndRemoteControls from './KeyAndRemoteControls'
 import UseOfPremises from './UseOfPremises'
 import WaterFilledFurniture from './WaterFilledFurniture'
 import Damage from './Damage'
+import SmokeDetectionDevice from './SmokeDetectionDevice'
+import CO2DetectionDevice from './CO2DetectionDevice'
+import EntryByLandlord from './EntryByLandlord'
+import VehiclesAndParking from './VehiclesAndParking'
+import AssignmentAndSubletting from './AssignmentAndSubletting'
+import LiabilityDamageResponsibility from './LiabilityDamageResponsibility'
 
 
 import ExecutionAndSignatures from './ExecutionAndSignatures'
@@ -182,6 +188,66 @@ class AgreementForm extends Component{
           <Accordion.Content>
             <Segment>
               <Damage />
+            </Segment>
+          </Accordion.Content>
+
+          <Accordion.Title>
+            <Icon name='dropdown' />
+            Smoke Detection Device
+          </Accordion.Title>
+          <Accordion.Content>
+            <Segment>
+              <SmokeDetectionDevice />
+            </Segment>
+          </Accordion.Content>
+
+          <Accordion.Title>
+            <Icon name='dropdown' />
+            CO2 Detection Device
+          </Accordion.Title>
+          <Accordion.Content>
+            <Segment>
+              <CO2DetectionDevice />
+            </Segment>
+          </Accordion.Content>
+
+          <Accordion.Title>
+            <Icon name='dropdown' />
+            Entry By Landlord
+          </Accordion.Title>
+          <Accordion.Content>
+            <Segment>
+              <EntryByLandlord />
+            </Segment>
+          </Accordion.Content>
+
+          <Accordion.Title>
+            <Icon name='dropdown' />
+            Vehicles And Parking
+          </Accordion.Title>
+          <Accordion.Content>
+            <Segment>
+              <VehiclesAndParking />
+            </Segment>
+          </Accordion.Content>
+
+          <Accordion.Title>
+            <Icon name='dropdown' />
+            Assignment And Subletting
+          </Accordion.Title>
+          <Accordion.Content>
+            <Segment>
+              <AssignmentAndSubletting />
+            </Segment>
+          </Accordion.Content>
+
+          <Accordion.Title>
+            <Icon name='dropdown' />
+            Liability Damage Responsibility
+          </Accordion.Title>
+          <Accordion.Content>
+            <Segment>
+              <LiabilityDamageResponsibility />
             </Segment>
           </Accordion.Content>
 
