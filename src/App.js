@@ -15,6 +15,7 @@ import Dashboard from './Dashboard';
 import RentalApplication from './RentalApplication';
 import Agreement from './agreement/Agreement';
 import Maintenance from './Maintenance';
+import Footer from './Footer';
 
 
 import { Switch, Route, Redirect, Link } from 'react-router-dom';
@@ -40,8 +41,8 @@ class App extends Component {
       <Container>
         <Spinner />
         <Header />
-        <Grid>
-          <GridRow>
+        <Grid stackable>
+          <GridRow >
             <GridColumn width={3}>
               <Menu size='mini' vertical fluid>
                 <Menu.Item name='dashboard'   as={Link} to="/dashboard" active={activeItem === 'dashboard'} onClick={this.handleItemClick} />
@@ -86,7 +87,7 @@ class App extends Component {
           </GridRow>
           <GridRow>
             <GridColumn>
-              footer
+              <Footer />
             </GridColumn>
           </GridRow>
         </Grid>
