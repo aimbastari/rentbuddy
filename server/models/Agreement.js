@@ -45,7 +45,7 @@ const agreementSchema = new Schema({
   ackVehiclesAndParking : Boolean,
   ackSubletting : Boolean,
   ackLiablility : Boolean,
-  ackPredetermination : Boolean,
+  ackPretermination : Boolean,
   ackRelocation : Boolean,
   ackDefault : Boolean,
   ackAttorneysFee : Boolean,

@@ -47,7 +47,7 @@ exports.data = [
     "ackVehiclesAndParking" : true,
     "ackSubletting" : true,
     "ackLiablility" : true,
-    "ackPredetermination" : true,
+    "ackPretermination" : true,
     "ackRelocation" : true,
     "ackDefault" : true,
     "ackAttorneysFee" : true,

@@ -24,7 +24,8 @@ import EntryByLandlord from './EntryByLandlord'
 import VehiclesAndParking from './VehiclesAndParking'
 import AssignmentAndSubletting from './AssignmentAndSubletting'
 import LiabilityDamageResponsibility from './LiabilityDamageResponsibility'
-
+import PreTerminationRepairs from './PreTerminationRepairs'
+import Relocation from './Relocation'
 
 import ExecutionAndSignatures from './ExecutionAndSignatures'
 
@@ -248,6 +249,26 @@ class AgreementForm extends Component{
           <Accordion.Content>
             <Segment>
               <LiabilityDamageResponsibility />
+            </Segment>
+          </Accordion.Content>
+
+          <Accordion.Title>
+            <Icon name='dropdown' />
+            PreTermination Repairs
+          </Accordion.Title>
+          <Accordion.Content>
+            <Segment>
+              <PreTerminationRepairs />
+            </Segment>
+          </Accordion.Content>
+
+          <Accordion.Title>
+            <Icon name='dropdown' />
+            Relocation In Event Of Needed Repairs
+          </Accordion.Title>
+          <Accordion.Content>
+            <Segment>
+              <Relocation />
             </Segment>
           </Accordion.Content>
 
