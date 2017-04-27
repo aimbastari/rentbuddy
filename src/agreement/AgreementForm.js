@@ -26,6 +26,10 @@ import AssignmentAndSubletting from './AssignmentAndSubletting'
 import LiabilityDamageResponsibility from './LiabilityDamageResponsibility'
 import PreTerminationRepairs from './PreTerminationRepairs'
 import Relocation from './Relocation'
+import Default from './Default'
+import AttorneyFeesAndCosts from './AttorneyFeesAndCosts'
+import RenewalHoldingOver from './RenewalHoldingOver'
+
 
 import ExecutionAndSignatures from './ExecutionAndSignatures'
 
@@ -271,6 +275,39 @@ class AgreementForm extends Component{
               <Relocation />
             </Segment>
           </Accordion.Content>
+
+          <Accordion.Title>
+            <Icon name='dropdown' />
+            Default
+          </Accordion.Title>
+          <Accordion.Content>
+            <Segment>
+              <Default />
+            </Segment>
+          </Accordion.Content>
+
+          <Accordion.Title>
+            <Icon name='dropdown' />
+            Attorney Fees And Costs
+          </Accordion.Title>
+          <Accordion.Content>
+            <Segment>
+              <AttorneyFeesAndCosts />
+            </Segment>
+          </Accordion.Content>
+
+
+          <Accordion.Title>
+            <Icon name='dropdown' />
+            Renewal/Holding Over
+          </Accordion.Title>
+          <Accordion.Content>
+            <Segment>
+              <RenewalHoldingOver />
+            </Segment>
+          </Accordion.Content>
+
+
 
           <Accordion.Title>
             <Icon name='dropdown' />
