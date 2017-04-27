@@ -7,8 +7,9 @@ class Footer extends React.Component {
   render() {
 
     return (
-      <Segment secondary textAlign='center' size="mini">
+      <Segment inverted secondary textAlign='center' size="mini">
           <Label as='a' color="orange" tag size="mini">RentBuddy-</Label> powered by Propframe technology
+
       </Segment>  
 
     )
