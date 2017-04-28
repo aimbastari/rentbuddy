@@ -48,6 +48,9 @@ class App extends Component {
                 <Menu.Item name='dashboard'   as={Link} to="/dashboard" active={activeItem === 'dashboard'} onClick={this.handleItemClick} />
                 <Menu.Item name='application' as={Link} to="/application" active={activeItem === 'application'} onClick={this.handleItemClick} />
                 <Menu.Item name='agreement'   as={Link} to="/agreement" active={activeItem === 'agreement'} onClick={this.handleItemClick} />
+                <Menu.Item name='communityRules'   as={Link} to="/" active={activeItem === ''} onClick={this.handleItemClick} />
+                <Menu.Item name='Notifications'   as={Link} to="/" active={activeItem === ''} onClick={this.handleItemClick} />
+                
                 <Menu.Item name='maintenance' as={Link} to="/maintenance" active={activeItem === 'manintenance'} onClick={this.handleItemClick} />
 
               </Menu>
