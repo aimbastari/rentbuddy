@@ -29,6 +29,10 @@ import Relocation from './Relocation'
 import Default from './Default'
 import AttorneyFeesAndCosts from './AttorneyFeesAndCosts'
 import RenewalHoldingOver from './RenewalHoldingOver'
+import Waiver from './Waiver'
+import ReleaseOfInformation from './ReleaseOfInformation'
+import MegansLaw from './MegansLaw'
+import Proposition65 from './Proposition65'
 
 
 import ExecutionAndSignatures from './ExecutionAndSignatures'
@@ -307,6 +311,47 @@ class AgreementForm extends Component{
             </Segment>
           </Accordion.Content>
 
+
+          <Accordion.Title>
+            <Icon name='dropdown' />
+            Waiver
+          </Accordion.Title>
+          <Accordion.Content>
+            <Segment>
+              <Waiver />
+            </Segment>
+          </Accordion.Content>
+
+
+          <Accordion.Title>
+            <Icon name='dropdown' />
+            Release Of Information
+          </Accordion.Title>
+          <Accordion.Content>
+            <Segment>
+              <ReleaseOfInformation />
+            </Segment>
+          </Accordion.Content>
+
+          <Accordion.Title>
+            <Icon name='dropdown' />
+            Megans Law Disclosure
+          </Accordion.Title>
+          <Accordion.Content>
+            <Segment>
+              <MegansLaw />
+            </Segment>
+          </Accordion.Content>
+
+          <Accordion.Title>
+            <Icon name='dropdown' />
+            Proposition 65 Disclosure
+          </Accordion.Title>
+          <Accordion.Content>
+            <Segment>
+              <Proposition65  />
+            </Segment>
+          </Accordion.Content>
 
 
           <Accordion.Title>
