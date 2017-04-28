@@ -30,6 +30,8 @@ import Default from './Default'
 import AttorneyFeesAndCosts from './AttorneyFeesAndCosts'
 import RenewalHoldingOver from './RenewalHoldingOver'
 import TerminationOfMonthlyTenancy from './TerminationOfMonthlyTenancy'
+import ChangeInTerms from './ChangeInTerms'
+
 
 
 import ExecutionAndSignatures from './ExecutionAndSignatures'
@@ -316,6 +318,17 @@ class AgreementForm extends Component{
           <Accordion.Content>
             <Segment>
               <TerminationOfMonthlyTenancy />
+            </Segment>
+          </Accordion.Content>
+
+
+          <Accordion.Title>
+            <Icon name='dropdown' />
+            Change In Terms
+          </Accordion.Title>
+          <Accordion.Content>
+            <Segment>
+              <ChangeInTerms />
             </Segment>
           </Accordion.Content>
 
