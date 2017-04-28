@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import { Menu, Dropdown, Button, Image } from 'semantic-ui-react';
+import { Menu, Dropdown, Button, Image, Label, Segment } from 'semantic-ui-react';
 
 import logo from './assets/images/rentbuddy-logo.png';
 
@@ -42,7 +42,7 @@ class Header extends React.Component {
 
     return (
       <Menu size='mini'>
-        <Menu.Item as={Link} to="/" name='home' active={activeItem === 'home'} onClick={this.handleItemClick} fitted><Image src={logo} /> </Menu.Item>
+        <Menu.Item as={Link} to="/" name='home' active={activeItem === 'home'} onClick={this.handleItemClick} fitted><Image src={logo} /><Label size="mini"  color="orange">RENTBUDDY</Label> </Menu.Item>
 
         <Menu.Menu position='right'>
  
