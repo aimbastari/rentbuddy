@@ -29,6 +29,7 @@ import Relocation from './Relocation'
 import Default from './Default'
 import AttorneyFeesAndCosts from './AttorneyFeesAndCosts'
 import RenewalHoldingOver from './RenewalHoldingOver'
+import TerminationOfMonthlyTenancy from './TerminationOfMonthlyTenancy'
 
 
 import ExecutionAndSignatures from './ExecutionAndSignatures'
@@ -308,6 +309,15 @@ class AgreementForm extends Component{
           </Accordion.Content>
 
 
+          <Accordion.Title>
+            <Icon name='dropdown' />
+            Termination Of Monthly Tenancy
+          </Accordion.Title>
+          <Accordion.Content>
+            <Segment>
+              <TerminationOfMonthlyTenancy />
+            </Segment>
+          </Accordion.Content>
 
           <Accordion.Title>
             <Icon name='dropdown' />
