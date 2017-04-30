@@ -24,7 +24,8 @@ export const CREATE_NEW_APPLICATION  = 'create_new_application';
 
 //agreement
 export const GET_AGREEMENT  = 'get_agreement';
-export const GET_AGREEMENT_LIST = 'get_agreement_list';
+export const GET_AGREEMENTS  = 'get_agreements';
+
 export const SAVE_AGREEMENT  = 'save_agreement';
 export const COPY_AGREEMENT  = 'copy_agreement';
 export const DELETE_AGREEMENT = 'delete_agreement';

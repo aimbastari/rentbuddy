@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {GET_AGREEMENT, SAVE_AGREEMENT } from './Types'
+import {GET_AGREEMENT, SAVE_AGREEMENT, GET_AGREEMENTS } from './Types'
 import {push} from 'connected-react-router';
 
 import {
@@ -7,6 +7,10 @@ import {
   begin, // The action value if a "long" running task begun
   end // The action value if a "long" running task ended
 } from 'react-redux-spinner';
+
+import { reducer as notifReducer, actions as notifActions, Notifs } from 'redux-notifications';
+
+const { notifSend } = notifActions;
 
 
 const API_URL = 'http://localhost:3090';
@@ -17,7 +21,7 @@ export function saveAgreement(agreement){
     return function(dispatch){
         //start Spinner
         dispatch({
-          type: 'SAVE_AGREEMENT',
+          type: SAVE_AGREEMENT,
           [ pendingTask ]: begin // Make sure you embrace `pendingTask` in brackets [] to evaluate it
           // Any additional key/values may be included here
         });
@@ -30,7 +34,7 @@ export function saveAgreement(agreement){
             .then(response => {
               //stop Spinner
               dispatch({
-                type: 'SAVE_AGREEMENT',
+                type: SAVE_AGREEMENT,
                 [ pendingTask ]: end, // Make sure you embrace `pendingTask` in brackets [] to evaluate it
                 payload: response.data
                 // Any additional key/values may be included here
@@ -47,7 +51,7 @@ export function saveAgreement(agreement){
             .catch((err) => {
               //stop Spinner
               dispatch({
-                type: 'SAVE_AGREEMENT',
+                type: SAVE_AGREEMENT,
                 [ pendingTask ]: end // Make sure you embrace `pendingTask` in brackets [] to evaluate it
                 // Any additional key/values may be included here
               });
@@ -64,22 +68,65 @@ export function saveAgreement(agreement){
     }
 }
 
-export function getAgreement(){
+export function getAgreement(id){
     return function(dispatch){
-        axios.get(`${API_URL}/agreement`,
+        axios.get(`${API_URL}/agreement/${id}`,
           {headers: {authorization: localStorage.getItem('token')}})
             .then(response => {
-                dispatch({type: GET_AGREEMENT, payload: response.data});
 
-                //redirect to dashboard
-//                dispatch(push('/application'))
+                dispatch({type: GET_AGREEMENT, payload: response.data});
 
             })
             .catch((response) => {
-                //If request is bad...
-                //Show error to the user
-//                dispatch(authError(response.data.error));
-//                dispatch(push('/application`'))
+
+              dispatch(notifSend({
+                    message: 'Unable to fetch agreement',
+                    kind: 'danger',
+                    dismissAfter: 2000
+                  }));
+
+
+            });
+
+    }
+}
+
+
+export function getAgreements(){
+    return function(dispatch){
+
+        //start Spinner
+        dispatch({
+          type: GET_AGREEMENTS,
+          [ pendingTask ]: begin // Make sure you embrace `pendingTask` in brackets [] to evaluate it
+          // Any additional key/values may be included here
+        });
+
+        //make api call
+        axios.get(`${API_URL}/agreement`,
+          {headers: {authorization: localStorage.getItem('token')}})
+            .then(response => {
+
+                //stop Spinner
+              dispatch({
+                type: GET_AGREEMENTS,
+                payload: response.data,
+                [ pendingTask ]: end // Make sure you embrace `pendingTask` in brackets [] to evaluate it
+                // Any additional key/values may be included here
+              });
+
+//                dispatch({type: GET_AGREEMENTS, payload: response.data});
+
+
+            })
+            .catch((response) => {
+
+              dispatch(notifSend({
+                    message: 'Unable to fetch agreements',
+                    kind: 'danger',
+                    dismissAfter: 2000
+                  }));
+
 
             });
 

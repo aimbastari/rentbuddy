@@ -14,6 +14,8 @@ import SignUp from './components/auth/SignUp';
 import Dashboard from './Dashboard';
 import RentalApplication from './RentalApplication';
 import Agreement from './agreement/Agreement';
+import Agreements from './Agreements';
+
 import Maintenance from './Maintenance';
 import Footer from './Footer';
 
@@ -47,9 +49,9 @@ class App extends Component {
               <Menu size='mini' vertical fluid>
                 <Menu.Item name='dashboard'   as={Link} to="/dashboard" active={activeItem === 'dashboard'} onClick={this.handleItemClick} />
                 <Menu.Item name='application' as={Link} to="/application" active={activeItem === 'application'} onClick={this.handleItemClick} />
-                <Menu.Item name='agreement'   as={Link} to="/agreement" active={activeItem === 'agreement'} onClick={this.handleItemClick} />
+                <Menu.Item name='agreements'   as={Link} to="/agreements" active={activeItem === 'agreements'} onClick={this.handleItemClick} />
                 <Menu.Item name='communityRules'   as={Link} to="/" active={activeItem === ''} onClick={this.handleItemClick} />
-                <Menu.Item name='Notifications'   as={Link} to="/" active={activeItem === ''} onClick={this.handleItemClick} />
+                <Menu.Item name='notifications'   as={Link} to="/" active={activeItem === ''} onClick={this.handleItemClick} />
                 
                 <Menu.Item name='maintenance' as={Link} to="/maintenance" active={activeItem === 'manintenance'} onClick={this.handleItemClick} />
 
@@ -73,8 +75,13 @@ class App extends Component {
                       <Redirect to='/signin' /> )}
                 />
 
-                <Route path='/agreement'  render={()=>(
-                    localStorage.getItem('token') ? <Agreement /> :
+                <Route path='/agreement/:id'  render={(match)=>(
+                    localStorage.getItem('token') ? <Agreement id={match.match.params.id}/> :
+                      <Redirect to='/signin' /> )}
+                />
+
+                <Route path='/agreements'  render={()=>(
+                    localStorage.getItem('token') ? <Agreements /> :
                       <Redirect to='/signin' /> )}
                 />
 

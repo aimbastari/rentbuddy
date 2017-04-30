@@ -14,14 +14,12 @@ class Agreement extends Component{
     this.props.saveAgreement(values);
   }
 
-
   render(){
+    const id = this.props.id;
+
     return (
       <div className='Agreement-header' >
-          <Label as='a' color="orange">
-            <Icon name='map outline'/>Rent or Lease Agreement
-          </Label>
-          <AgreementForm onSubmit={this.handleSubmit} />
+          <AgreementForm onSubmit={this.handleSubmit} id={id}/>
       </div>
     )
 

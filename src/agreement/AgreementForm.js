@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './Agreement.css';
 
-import { Accordion, Icon, Segment, Button } from 'semantic-ui-react';
+import { Accordion, Icon, Segment, Button, Label } from 'semantic-ui-react';
 
 
 import Occupants from './Occupants'
@@ -50,14 +50,20 @@ import { reduxForm } from 'redux-form';
 class AgreementForm extends Component{
 
   componentWillMount = () => {
-    this.props.getAgreement();
+    this.props.getAgreement(this.props.id);
   }
 
 
 
   render(){
     const { handleSubmit, pristine, reset, submitting } = this.props;
+
     return (
+      <div>
+      <Label as='a' color="orange">
+        <Icon name='map outline'/>Rent or Lease Agreement: 
+      </Label>
+
       <form onSubmit={handleSubmit} className="ui form">
         <Accordion>
 
@@ -394,6 +400,8 @@ class AgreementForm extends Component{
         </Segment>
 
       </form>
+      </div>
+
     );
   }
 
@@ -410,7 +418,7 @@ AgreementForm = connect(
   state => ({
     enableReinitialize : true,
     keepDirtyOnReinitialize : true,
-    initialValues: state.agreement.data // pull initial values from agreement reducer
+    initialValues: state.agreement.selected // pull initial values from agreement reducer
   }),
    actions                // bind account loading action creator
 )(AgreementForm)
