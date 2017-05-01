@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import {Table, Label } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import moment from 'moment';
+
 
 import * as actions from './actions/AgreementActions';
 
@@ -12,6 +14,11 @@ class Agreements extends Component {
 
     componentWillMount() {
        this.props.getAgreements(); 
+    }
+
+    displayDate(date){
+        return moment(date).format('MM/DD/YYYY');
+
     }
 
     renderAgreements = () => {
@@ -36,10 +43,10 @@ class Agreements extends Component {
                                 {row.name}
                             </Table.Cell>          
                             <Table.Cell>
-                                {row.beginDate}
+                                {this.displayDate(row.beginDate)}
                             </Table.Cell>          
                             <Table.Cell>
-                                {row.expireDate}
+                                {this.displayDate(row.expireDate)}
                             </Table.Cell>          
                             <Table.Cell>
                                 {row.status}
@@ -48,7 +55,8 @@ class Agreements extends Component {
                                 <Link to={`/agreement/${row._id}`}>select</Link>
                             </Table.Cell>          
                             
-                        </Table.Row>    
+                        </Table.Row>
+
                     )  
                
                }     
