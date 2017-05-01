@@ -7,7 +7,7 @@ const mongoose = require('mongoose');
 exports.getAgreements = function(req, res){
   const userId = req.user._id;
 
-  Agreement.find({userId}, 'name createDate status', function(err, docs){
+  Agreement.find({userId}, 'name beginDate expireDate status', function(err, docs){
     if(err){
       console.log(err);
       return res.status(422).send({error : "unable to retrieve Agreements"});
@@ -35,24 +35,6 @@ exports.getAgreement = function(req, res){
 
 }
 
-//get agreement by User ID
-exports.getAgreementByUserId = function(req, res){
-  const userId = req.user._id;
-  console.log("Inside getAgreementByUserId");
-  console.log(userId);
-
-
-  Agreement.findOne({userId}, function(err, doc){
-    if(err){
-      console.log(err);
-      return res.status(422).send({error : "unable to retrieve agreement using user id"});
-    }
-
-    res.json(doc);
-
-  });
-
-}
 
 
 exports.saveAgreement = function(req, res){

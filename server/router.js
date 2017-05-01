@@ -56,9 +56,13 @@ module.exports = function(app){
   app.post('/agreement', requireAuth, Agreement.saveAgreement);
 
 
-  //A routes
+  //Agreement routes
   //This route is protected and need a JWT token
-  app.get('/agreement', requireAuth, Agreement.getAgreementByUserId);
+  //app.get('/agreement', requireAuth, Agreement.getAgreementByUserId);
+
+  app.get('/agreement', requireAuth, Agreement.getAgreements);
+
+  app.get('/agreement/:agreementId', requireAuth, Agreement.getAgreement);
 
 
 }

@@ -34,7 +34,7 @@ User.remove({}, function(err){
 });
 
 
-//Seed data: first remove exisiting users, then create users
+//Seed data: first remove exisiting applications, then create applications
 Application.remove({}, function(err){
   if(err) return console.error(err);
   console.log("Applications removed");
@@ -44,7 +44,7 @@ Application.remove({}, function(err){
     console.log("Inserted Applications");
 
     //join user with application
-    //Populate UerId - ObjectId
+    //Populate UserId - ObjectId
     User.findOne({email : "tenant@gmail.com"}, function(err, doc){
       if(err) return console.error(err);
 
@@ -104,19 +104,16 @@ Agreement.remove({}, function(err){
       if(err) return console.error(err);
 
       if(doc){
-        console.log("Found one user");
+        console.log("Found one tenant");
 
-        //Find any agreement
-        Agreement.findOneAndUpdate({},
-          { $set: {userId: doc._id}},{new : true}, function(err, doc){
-            if (err) {return next(err);}
+        //Find agreements
+        Agreement.update({}, {$set: {userId: doc._id}}, {multi : true }, cb);
+       console.log("Updated agreements with tenant");
 
-            if(!doc){
-              console.log("Cannot update agreement");
-            }else{
-              console.log("Updated agreement with tenant userId");
-            }
-        });
+        function cb (err, numAffected) {
+          console.log(numAffected)  
+        }
+
       }
     });
 
@@ -124,18 +121,16 @@ Agreement.remove({}, function(err){
       if(err) return console.error(err);
 
       if(doc){
-        console.log("Found one user");
+        console.log("Found one landlord");
 
-        Agreement.findOneAndUpdate({},
-          { $set: {landlordId: doc._id}},{new : true}, function(err, doc){
-            if (err) {return next(err);}
+        //Find agreements
+        function cb (err, numAffected) {
+             console.log(numAffected)  
+        }
+ 
+        Agreement.update({}, {$set: {landlordId: doc._id}}, {multi : true }, cb );
+       console.log("Updated agreements with landlord");
 
-            if(!doc){
-              console.log("Cannot update agreement");
-            }else{
-              console.log("Updated agreement with landlord userId");
-            }
-        });
       }
     });
 

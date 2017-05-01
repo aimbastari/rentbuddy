@@ -3,6 +3,7 @@ const Schema = mongoose.Schema;
 
 //Define the Agreement model
 const agreementSchema = new Schema({
+  name : String,
   userId :  mongoose.Schema.Types.ObjectId,
   landlordId :  mongoose.Schema.Types.ObjectId,
   occupants : {type: Array, "default" : []},

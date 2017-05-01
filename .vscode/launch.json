@@ -1,20 +1,17 @@
 {
-    "version": "0.1.0",
+
+    "version": "0.2.0",
     "configurations": [
-        
         {
-            "name": "Launch localhost",
+            "name": "Chrome",
             "type": "chrome",
             "request": "launch",
             "url": "http://localhost:3000",
-            "webRoot": "${workspaceRoot}/rentbuddy/src"
-        },
-        {
-            "name": "Launch index.html (disable sourcemaps)",
-            "type": "chrome",
-            "request": "launch",
-            "sourceMaps": false,
-            "file": "${workspaceRoot}/public/index.html"
-        },
+            "webRoot": "${workspaceRoot}/src",
+            "userDataDir": "${workspaceRoot}/.chrome",
+            "sourceMapPathOverrides": {
+                "webpack:///src/*": "${webRoot}/*"
+            }
+        }
     ]
 }
