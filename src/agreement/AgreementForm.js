@@ -44,7 +44,7 @@ import ExecutionAndSignatures from './ExecutionAndSignatures'
 import * as actions from './../actions/AgreementActions';
 
 import { connect } from 'react-redux';
-import { reduxForm } from 'redux-form';
+import { reduxForm, Field } from 'redux-form';
 
 
 class AgreementForm extends Component{
@@ -60,11 +60,25 @@ class AgreementForm extends Component{
 
     return (
       <div>
-      <Label as='a' color="orange">
-        <Icon name='map outline'/>Rent or Lease Agreement: 
-      </Label>
 
       <form onSubmit={handleSubmit} className="ui form">
+          <div className="fields">
+            <div className="six wide field">
+              <Label as='a' color="orange">
+                <Icon name='map outline'/>                
+                <Field name="name" id="name" component="input" type="text" disabled />
+              </Label>
+            </div>
+            <div className="six wide field">
+              <Button>Ack All</Button> 
+            </div>
+            <div className="four wide field">
+              <Button>Submit</Button> 
+            </div>
+
+
+         </div>
+        
         <Accordion>
 
           <Accordion.Title>
