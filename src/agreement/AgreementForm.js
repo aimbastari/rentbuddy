@@ -75,8 +75,6 @@ class AgreementForm extends Component{
             <div className="four wide field">
               <Button>Submit</Button> 
             </div>
-
-
          </div>
         
         <Accordion>
