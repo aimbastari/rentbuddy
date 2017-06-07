@@ -1,33 +1,28 @@
 
 import { combineReducers } from 'redux';
 import { reducer as formReducer } from 'redux-form';
+import { pendingTasksReducer } from 'react-redux-spinner'; // The redux reducer
+
+import { reducer as notifReducer } from 'redux-notifications';
+
+
+import user from './UserReducer.js'
+import auth from './AuthReducer.js'
+import application from './ApplicationReducer.js'
+import agreement from './AgreementReducer.js'
+
+
 
 const reducers = {
-  //..other reducers
-  form: formReducer // Mount redux-from reducer as form
+  user,
+  auth,
+  application,
+  agreement,
+  form: formReducer, // Mount redux-from reducer as form
+  pendingTasks : pendingTasksReducer,
+  notifs: notifReducer
 }
 
 const reducer = combineReducers(reducers);
-
-/*
-function reducer(state, action) {
-  if (action.type === 'ADD_MESSAGE') {
-    return {
-      messages: state.messages.concat(action.message),
-    };
-  } else if (action.type === 'DELETE_MESSAGE') {
-    return {
-      messages: [
-        ...state.messages.slice(0, action.index),
-        ...state.messages.slice(
-          action.index + 1, state.messages.length
-        ),
-      ],
-    };
-  } else {
-    return state;
-  }
-}
-*/
 
 export default reducer;

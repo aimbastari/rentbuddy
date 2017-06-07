@@ -1,0 +1,14 @@
+.Agreement {
+  text-align: center;
+
+}
+
+.Agreement-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.Agreement-header {
+  background-color: #AB6;
+  color: white;
+}

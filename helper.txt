@@ -1,0 +1,8 @@
+$Host.UI.RawUI.WindowTitle = "database"
+$Host.UI.RawUI.WindowTitle = "server"
+$Host.UI.RawUI.WindowTitle = "git"
+$Host.UI.RawUI.WindowTitle = "client"
+
+$Host.UI.RawUI.WindowTitle = "seed"
+
+
