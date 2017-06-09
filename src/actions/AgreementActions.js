@@ -13,7 +13,7 @@ import { reducer as notifReducer, actions as notifActions, Notifs } from 'redux-
 const { notifSend } = notifActions;
 
 
-const API_URL = 'http://localhost:3090';
+const API_URL = '/api';
 
 
 

@@ -10,6 +10,10 @@ const LocalStrategy = require('passport-local');
 //Create local sratergy (uses email / password for initial signin, after user has signed up)
 const localOptions = { usernameField: 'email'};
 const localLogin = new LocalStrategy(localOptions, function(email, password, done){
+  console.log("attempting to login: ");
+  console.log(email);
+  console.log(password);
+  
   User.findOne({email : email}, function(err, user){
     if(err) {return done(err, false);}
     if(!user) {return done(null, false);}

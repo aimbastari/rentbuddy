@@ -1,5 +1,5 @@
 //Constant definitions
-const NODE_PORT = process.env.NODE_PORT || 3090;
+const NODE_PORT = process.env.NODE_PORT || 3001;
 const DB_SERVER = process.env.DB_SERVER || "localhost";
 const DB_PORT = process.env.DB_PORT || 27017;
 const NODE_ENV = process.env.NODE_ENV || 'dev';
@@ -10,7 +10,7 @@ const http = require('http');
 const bodyparser = require('body-parser');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
-const router = require('./Router');
+const router = require('./router');
 const cors = require('cors');
 
 const app = express();

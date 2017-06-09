@@ -12,7 +12,7 @@ import {
 import { reducer as notifReducer, actions as notifActions, Notifs } from 'redux-notifications';
 
 const { notifSend } = notifActions;
-const API_URL = 'http://localhost:3090';
+const API_URL = '/api';
 
 
 export function signinUser({email, password}){

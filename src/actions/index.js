@@ -3,7 +3,7 @@ import axios from 'axios';
 import {AUTH_USER, UNAUTH_USER, AUTH_ERROR} from './Types'
 import {push} from 'connected-react-router';
 
-const API_URL = 'http://localhost:3090';
+const API_URL = '/api';
 
 
 export function signinUser({email, password}){
