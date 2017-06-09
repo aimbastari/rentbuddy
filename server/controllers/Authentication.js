@@ -10,6 +10,7 @@ function tokenForUser(user) {
 
 //User has already authorized email password
 exports.signin = function(req, res, next){
+  console.log("inside signin");
   res.send({
     token: tokenForUser(req.user),
     firstName: req.user.firstName,
