@@ -30,3 +30,12 @@ export const SAVE_AGREEMENT  = 'save_agreement';
 export const COPY_AGREEMENT  = 'copy_agreement';
 export const DELETE_AGREEMENT = 'delete_agreement';
 export const CREATE_NEW_AGREEMENT = 'create_new_agreement';
+
+//maintenance
+export const GET_MAINTENANCE_REQUEST  = 'get_maintenance_request';
+export const GET_MAINTENANCE_REQUESTS  = 'get_maintenance_requests';
+
+export const SAVE_MAINTENANCE_REQUEST  = 'save_maintenance_request';
+export const COPY_MAINTENANCE_REQUEST  = 'copy_maintenance_request';
+export const DELETE_MAINTENANCE_REQUEST = 'delete_maintenance_request';
+export const CREATE_NEW_MAINTENANCE_REQUEST = 'create_maintenance_request';

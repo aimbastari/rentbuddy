@@ -10,6 +10,8 @@ import user from './UserReducer.js'
 import auth from './AuthReducer.js'
 import application from './ApplicationReducer.js'
 import agreement from './AgreementReducer.js'
+import maintenance from './MaintenanceReducer.js'
+
 
 
 
@@ -18,6 +20,7 @@ const reducers = {
   auth,
   application,
   agreement,
+  maintenance,
   form: formReducer, // Mount redux-from reducer as form
   pendingTasks : pendingTasksReducer,
   notifs: notifReducer
