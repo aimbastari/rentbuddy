@@ -1,5 +1,6 @@
 exports.data = [
   {
+    "_id" : "1",
     "email": "aimbastari@gmail.com",
     "password": "aimbastari",
     "firstName": "alex",
@@ -21,6 +22,7 @@ exports.data = [
 
   },
   {
+    "_id": "2",
     "email": "tenant@gmail.com",
     "password": "tenant",
     "firstName": "austin",
@@ -41,6 +43,7 @@ exports.data = [
 
   },
   {
+    "_id": "3",
     "email": "landlord@gmail.com",
     "password": "landlord",
     "firstName": "justin",
@@ -61,6 +64,7 @@ exports.data = [
 
   },
   {
+    "_id": "4",
     "email": "maintenance@gmail.com",
     "password": "maintenance",
     "firstName": "carlos",
@@ -79,6 +83,26 @@ exports.data = [
       {"type": "home", "digits": "7147717588"}
     ]
 
-  }
+  },
+  {
+  "_id": "5",
+  "email": "maintenance@gmail.com",
+  "password": "maintenance",
+  "firstName": "john",
+  "lastName": "smith",
+  "middelName": "jackson",
+  "roles": [
+    "maintenance"
+  ],
+  "address": [
+    "1101 N Maintenance Pl",
+    "Orange, CA 92869",
+    "USA"
+  ],
+  "phones": [
+    {"type": "cell", "digits": "7149045358"},
+    {"type": "home", "digits": "7147717588"}
+  ]
+}
 
 ]
