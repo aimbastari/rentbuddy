@@ -15,10 +15,10 @@ const userData = require('./UserData.js').data;
 const applicationData = require('./ApplicationData.js').data;
 const agreementData = require('./AgreementData.js').data;
 
-
 //DB setup
 const DB_URL=`mongodb://${DB_SERVER}:${DB_PORT}/rentbuddy`;
 mongoose.connect(DB_URL);
+
 
 //Seed data: first remove exisiting users, then create users
 User.remove({}, function(err){
@@ -27,7 +27,7 @@ User.remove({}, function(err){
 
   User.create(userData, function (err, users){
     if(err) return console.error(err);
-    console.log("Inserted Users");
+    console.log("Users Inserted");
 
   });
 
@@ -39,101 +39,37 @@ Application.remove({}, function(err){
   if(err) return console.error(err);
   console.log("Applications removed");
 
-  Application.create(applicationData, function (err, doc){
+  Application.create(apllicationData, function (err, application){
     if(err) return console.error(err);
-    console.log("Inserted Applications");
-
-    //join user with application
-    //Populate UserId - ObjectId
-    User.findOne({email : "tenant@gmail.com"}, function(err, doc){
-      if(err) return console.error(err);
-
-      if(doc){
-        console.log("Found one user");
-
-        Application.findOneAndUpdate({email : "tenant@gmail.com"},
-          { $set: {userId: doc._id}},{new : true}, function(err, doc){
-            if (err) {return next(err);}
-
-            if(!doc){
-              console.log("Cannot update application");
-            }else{
-              console.log("Updated application with user");
-            }
-        });
-      }
-    });
-
-    User.findOne({email : "aimbastari@gmail.com"}, function(err, doc){
-      if(err) return console.error(err);
-
-      if(doc){
-        console.log("Found one user");
-
-        Application.findOneAndUpdate({email : "aimbastari@gmail.com"},
-          { $set: {userId: doc._id}},{new : true}, function(err, doc){
-            if (err) {return next(err);}
-
-            if(!doc){
-              console.log("Cannot update application");
-            }else{
-              console.log("Updated application with user");
-            }
-        });
-      }
-    });
-
-
+    console.log("Applications Inserted");
 
   });
+
+});
+
+//Seed data: first remove exisiting agreements, then create agreemnts
+Agreement.remove({}, function(err){
+  if(err) return console.error(err);
+  console.log("Agreements removed");
+
+  Application.create(agreementData, function (err, agreement){
+    if(err) return console.error(err);
+    console.log("Agreements inserted");
+
+  });
+
 });
 
 
-//Seed data: first remove exisiting agreements, then connect tenants and landlords
-Agreement.remove({}, function(err){
+//Seed data: first remove exisiting applications, then create applications
+Maintenance.remove({}, function(err){
   if(err) return console.error(err);
-  console.log("Agreement removed");
+  console.log("Maintenance removed");
 
-  Agreement.create(agreementData, function (err, doc){
+  Maintenance.create(maintenanceData, function (err, maintenance){
     if(err) return console.error(err);
-    console.log("Inserted Agreements");
-
-    //join user with application
-    //Populate UerId - ObjectId
-    User.findOne({email : "tenant@gmail.com"}, function(err, doc){
-      if(err) return console.error(err);
-
-      if(doc){
-        console.log("Found one tenant");
-
-        //Find agreements
-        Agreement.update({}, {$set: {userId: doc._id}}, {multi : true }, cb);
-       console.log("Updated agreements with tenant");
-
-        function cb (err, numAffected) {
-          console.log(numAffected)  
-        }
-
-      }
-    });
-
-    User.findOne({email : "aimbastari@gmail.com"}, function(err, doc){
-      if(err) return console.error(err);
-
-      if(doc){
-        console.log("Found one landlord");
-
-        //Find agreements
-        function cb (err, numAffected) {
-             console.log(numAffected)  
-        }
- 
-        Agreement.update({}, {$set: {landlordId: doc._id}}, {multi : true }, cb );
-       console.log("Updated agreements with landlord");
-
-      }
-    });
-
+    console.log("Maintenance inserted");
 
   });
+
 });

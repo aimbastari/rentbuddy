@@ -1,11 +1,12 @@
 exports.data = [
   {
+    "_id":"1",
     "name" : "Application 1",
     "lastName" : "imbastari",
     "firstName" : "alex",
     "middleName" : "javier",
     "ssn" : "553-55-7880",
-    "otherId" : "",
+    "userId" : "1",
     "birthDate" : "2012-04-23",
     "email" : "aimbastari@gmail.com",
     "aliases": "jose pelotas pelopincho",
@@ -71,12 +72,13 @@ exports.data = [
     "status" : "pending"
   },
   {
+    "_id":"2",    
     "name" : "Application 2",
     "lastName" : "imbastari",
     "firstName" : "austin",
     "middleName" : "sydney",
     "ssn" : "553-55-71111",
-    "otherId" : "",
+    "userId" : "2",
     "birthDate" : "2012-04-23",
     "email" : "tenant@gmail.com",
     "aliases": "conehead moglee",

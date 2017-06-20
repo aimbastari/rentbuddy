@@ -1,0 +1,9 @@
+use rentbuddy
+
+db.User.drop();
+
+db.Application.drop();
+
+db.Agreement.drop();
+
+db.Maintenance.drop();

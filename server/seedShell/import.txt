@@ -1,0 +1,7 @@
+mongoimport --db rentbuddy --collection User --mode merge --file user.json
+
+mongoimport --db rentbuddy --collection Agreement --mode merge --file agreement.json
+
+mongoimport --db rentbuddy --collection Application --mode merge --file applicaiton.json
+
+mongoimport --db rentbuddy --collection Maintenance --mode merge --file maintenance.json
